@@ -4368,3 +4368,12 @@ IUPAC Name: methane
 2024-08-27 15:27:41,530 - 'molecular_formula' column already exists.
 2024-08-27 15:27:45,878 - SMILES input recognized: CCNO
 2024-08-27 15:27:52,869 - SMILES input recognized: CCNOC1CCCCC1
+2024-08-27 20:46:22,706 - 'molecular_formula' column already exists.
+2024-08-27 20:46:29,449 - SMILES input recognized: C
+2024-08-27 20:46:29,942 - Molecule with SMILES C already exists in the database.
+2024-08-27 20:46:31,888 - SMILES input recognized: CCONNN
+2024-08-27 20:46:32,271 - Molecule with SMILES CCONNN already exists in the database.
+2024-08-27 20:46:34,140 - SMILES input recognized: CCCNCC
+2024-08-27 20:46:34,572 - Molecule with SMILES CCCNCC already exists in the database.
+2024-08-27 20:46:37,621 - SMILES input recognized: CONOO
+2024-08-27 20:46:38,068 - Molecule with SMILES CONOO already exists in the database.
