@@ -4377,3 +4377,227 @@ IUPAC Name: methane
 2024-08-27 20:46:34,572 - Molecule with SMILES CCCNCC already exists in the database.
 2024-08-27 20:46:37,621 - SMILES input recognized: CONOO
 2024-08-27 20:46:38,068 - Molecule with SMILES CONOO already exists in the database.
+2024-08-27 20:51:02,564 - 'molecular_formula' column already exists.
+2024-08-27 20:51:15,398 - 'molecular_formula' column already exists.
+2024-08-27 20:51:32,560 - 'molecular_formula' column already exists.
+2024-08-27 20:53:05,885 - Column atomic_mass already exists.
+2024-08-27 20:53:05,886 - Column iupac_name already exists.
+2024-08-27 20:53:10,987 - SMILES input recognized: C#N
+2024-08-27 20:53:10,987 - SMILES C#N already exists in the database.
+2024-08-27 20:53:10,991 - Molecule Info - Formula: CHN, Weight: 27.026, Total Atoms: 3, Atom Count: {'C': 1, 'N': 1, 'H': 1}, Groups: []
+2024-08-27 20:53:11,452 - Error fetching data from PubChem: 400 Client Error: PUGREST.BadRequest for url: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/smiles/C#N/property/MolecularFormula,MolecularWeight,IUPACName/JSON
+2024-08-27 21:13:11,981 - SMILES input recognized: CCONNN
+2024-08-27 21:13:12,577 - Molecule with SMILES CCONNN already exists in the database.
+2024-08-27 21:13:14,039 - SMILES input recognized: CCONNN
+2024-08-27 21:13:14,495 - Molecule with SMILES CCONNN already exists in the database.
+2024-08-27 21:13:15,706 - SMILES input recognized: ONOOCCNCN
+2024-08-27 21:13:16,302 - Molecule with SMILES ONOOCCNCN already exists in the database.
+2024-08-27 21:15:54,312 - SMILES input recognized: CCONNN
+2024-08-27 21:15:57,166 - SMILES input recognized: C
+2024-08-27 21:15:59,619 - SMILES input recognized: CCCN
+2024-08-27 21:16:09,333 - SMILES input recognized: C=C=CC=CO
+2024-08-27 21:16:10,939 - SMILES input recognized: C=CCC(C)C
+2024-08-27 21:16:14,015 - SMILES input recognized: CCCCCCC
+2024-08-27 21:16:38,073 - 'molecular_formula' column already exists.
+2024-08-27 21:16:43,293 - SMILES input recognized: CONOO
+2024-08-27 21:16:43,918 - Molecule with SMILES CONOO already exists in the database.
+2024-08-27 21:17:09,597 - SMILES input recognized: C1=CC=CC=C1
+2024-08-27 21:17:50,693 - SMILES input recognized: C1=CC=CC=C1C(CO)C=O
+2024-08-27 21:18:09,682 - SMILES input recognized: C1=CC=CC=C1C(CO)(CO)C=O
+2024-08-27 21:18:38,995 - SMILES input recognized: C1=CC=CC=C1C(CO)(C=O)C=O
+2024-08-27 21:18:42,702 - SMILES input recognized: C1=CC=CC=C1C(C=O)(C=O)C=O
+2024-08-27 21:19:41,480 - SMILES input recognized: C1=CC=CC=C1C(C1=CC=CC=C1)(C=O)C=O
+2024-08-27 21:19:54,483 - SMILES input recognized: C1=CC=CC=C1C(C1=CC=CC=C1)(C1=CC=CC=C1)C1=CC=CC=C1
+2024-08-27 21:20:15,609 - SMILES input recognized: C1=CC=CC=C1C(C1=CC=CC=C1)(C1=CC=CC=C1)C1=CN=CC=C1
+2024-08-27 21:20:29,218 - SMILES input recognized: C1=CC=CC=C1C(C1=CC=CC=N1)(C1=CC=CC=C1)C1=CN=CC=C1
+2024-08-27 21:20:34,507 - SMILES input recognized: OONCCOCNOC
+2024-08-27 21:20:34,978 - Molecule with SMILES OONCCOCNOC already exists in the database.
+2024-08-27 21:22:34,979 - SMILES input recognized: CCCNO
+2024-08-27 21:22:39,163 - SMILES input recognized: NNN
+2024-08-27 21:22:41,041 - SMILES input recognized: NCCCCOC
+2024-08-27 21:23:03,996 - 'molecular_formula' column already exists.
+2024-08-27 21:23:10,818 - SMILES input recognized: CCONNN
+2024-08-27 21:23:11,293 - Molecule with SMILES CCONNN already exists in the database.
+2024-08-27 21:23:12,617 - SMILES input recognized: CCCNO
+2024-08-27 21:23:13,091 - Molecule with SMILES CCCNO already exists in the database.
+2024-08-27 21:23:13,976 - SMILES input recognized: CCONNN
+2024-08-27 21:23:14,342 - Molecule with SMILES CCONNN already exists in the database.
+2024-08-27 21:23:15,344 - SMILES input recognized: 
+2024-08-27 21:23:15,353 - Error fetching data from PubChem: identifier/cid cannot be None
+2024-08-27 21:23:31,169 - SMILES input recognized: C
+2024-08-27 21:23:31,538 - Molecule with SMILES C already exists in the database.
+2024-08-27 21:23:31,879 - SMILES input recognized: CCONNN
+2024-08-27 21:23:32,327 - Molecule with SMILES CCONNN already exists in the database.
+2024-08-27 21:23:33,053 - SMILES input recognized: CCCNO
+2024-08-27 21:23:33,469 - Molecule with SMILES CCCNO already exists in the database.
+2024-08-27 21:23:34,855 - SMILES input recognized: C=C
+2024-08-27 21:23:35,245 - Molecule with SMILES C=C already exists in the database.
+2024-08-27 21:23:36,894 - SMILES input recognized: CNCCIO
+2024-08-27 21:23:37,293 - Molecule with SMILES CNCCIO already exists in the database.
+2024-08-27 21:23:50,252 - SMILES input recognized: C1=CC=CC=C1C(C1=CC=CC=C1)(C=O)C=O
+2024-08-27 21:23:50,922 - Molecule with SMILES C1=CC=CC=C1C(C1=CC=CC=C1)(C=O)C=O already exists in the database.
+2024-08-27 21:23:52,503 - SMILES input recognized: CCONNO
+2024-08-27 21:23:52,883 - Molecule with SMILES CCONNO already exists in the database.
+2024-08-27 21:24:01,095 - SMILES input recognized: C1=CC=CC=C1C(CO)C=O
+2024-08-27 21:24:01,491 - Molecule with SMILES C1=CC=CC=C1C(CO)C=O already exists in the database.
+2024-08-27 21:24:04,108 - SMILES input recognized: C1=CC=CC=C1C(C=O)(C=O)C=O
+2024-08-27 21:24:04,636 - Molecule with SMILES C1=CC=CC=C1C(C=O)(C=O)C=O already exists in the database.
+2024-08-27 21:24:10,050 - SMILES input recognized: CNCCO
+2024-08-27 21:24:10,446 - Molecule with SMILES CNCCO already exists in the database.
+2024-08-27 21:24:10,584 - SMILES input recognized: C(C)N
+2024-08-27 21:24:10,988 - Molecule with SMILES C(C)N already exists in the database.
+2024-08-27 21:24:13,173 - SMILES input recognized: CCNNC#C
+2024-08-27 21:24:13,609 - Molecule with SMILES CCNNC#C already exists in the database.
+2024-08-27 21:24:19,683 - SMILES input recognized: CCONNO
+2024-08-27 21:24:20,132 - Molecule with SMILES CCONNO already exists in the database.
+2024-08-27 21:24:31,722 - SMILES input recognized: CCONNO
+2024-08-27 21:24:32,121 - Molecule with SMILES CCONNO already exists in the database.
+2024-08-27 21:25:10,037 - SMILES input recognized: B
+2024-08-27 21:25:21,264 - SMILES input recognized: BN
+2024-08-27 21:25:29,355 - SMILES input recognized: CCC
+2024-08-27 21:25:29,734 - Molecule with SMILES CCC already exists in the database.
+2024-08-27 21:26:16,777 - SMILES input recognized: CCCN
+2024-08-27 21:26:17,151 - Molecule with SMILES CCCN already exists in the database.
+2024-08-29 15:30:32,391 - 'molecular_formula' column already exists.
+2024-08-29 15:30:40,751 - SMILES input recognized: CNBr
+2024-08-29 15:30:51,036 - SMILES input recognized: CCCCCNBr
+2024-08-29 16:04:14,482 - SMILES input recognized: C1=NC(=C2C(=N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N
+2024-08-30 14:41:46,380 - 'molecular_formula' column already exists.
+2024-08-30 14:41:49,104 - SMILES input recognized: CCONNN
+2024-08-30 14:41:49,637 - Molecule with SMILES CCONNN already exists in the database.
+2024-08-30 15:45:53,155 - 'molecular_formula' column already exists.
+2024-08-30 15:45:57,960 - SMILES input recognized: CNOC
+2024-08-30 18:33:15,574 - 'molecular_formula' column already exists.
+2024-08-30 18:34:44,323 - 'molecular_formula' column already exists.
+2024-08-30 18:34:50,331 - SMILES input recognized: CCC
+2024-08-30 18:34:50,816 - Molecule with SMILES CCC already exists in the database.
+2024-08-30 18:35:03,681 - SMILES input recognized: C1CCCCC1
+2024-08-30 18:35:18,383 - SMILES input recognized: O1C2CCCCC1CC2
+2024-08-30 18:35:22,392 - SMILES input recognized: O1C2CCC=CC1CC2
+2024-08-30 18:35:32,253 - SMILES input recognized: O1C2C=CC=CC1CC2
+2024-08-30 18:35:53,125 - SMILES input recognized: O(CCC)CC1C2C=CC=CC1CC2
+2024-08-30 18:36:16,616 - SMILES input recognized: C1CCCC1
+2024-08-30 18:36:44,809 - SMILES input recognized: C1=C-CC=CC1
+2024-08-30 18:36:47,664 - SMILES input recognized: C1=C-C=C=CC1
+2024-08-30 18:37:03,939 - SMILES input recognized: C1C=CCCC1
+2024-08-30 18:44:40,970 - SMILES input recognized: CC#CCC#C
+2024-08-30 18:48:33,852 - SMILES input recognized: OOOCONOON
+2024-08-30 18:48:34,344 - SMILES input recognized: ONNNCOCC
+2024-08-30 18:48:38,126 - SMILES input recognized: CCONNN
+2024-08-30 18:48:42,623 - SMILES input recognized: CCONNN
+2024-08-30 18:48:44,218 - SMILES input recognized: 
+2024-08-30 18:48:44,231 - Error fetching data for SMILES : identifier/cid cannot be None
+2024-08-30 18:48:44,727 - SMILES input recognized: C
+2024-08-30 19:16:10,787 - 'molecular_formula' column already exists.
+2024-08-30 19:16:15,531 - Processing molecule with SMILES: 
+2024-08-30 19:16:15,531 - Error fetching data for SMILES : identifier/cid cannot be None
+2024-08-30 19:49:13,534 - 'molecular_formula' column already exists.
+2024-08-30 19:49:23,910 - SMILES input recognized: CBC
+2024-08-30 19:49:35,857 - SMILES input recognized: CB=CC=O
+2024-08-30 19:49:46,147 - SMILES input recognized: CNN
+2024-08-30 19:49:46,523 - Molecule with SMILES CNN already exists in the database.
+2024-08-30 19:49:52,242 - SMILES input recognized: CNNO
+2024-08-30 19:50:33,579 - 'molecular_formula' column already exists.
+2024-08-30 20:00:14,726 - SMILES input recognized: CCCNO
+2024-08-30 20:00:15,274 - Molecule with SMILES CCCNO already exists in the database.
+2024-08-30 20:06:06,778 - SMILES input recognized: CCCNCC
+2024-08-30 20:06:10,058 - SMILES input recognized: CCCN
+2024-08-30 20:06:16,855 - SMILES input recognized: CCO
+2024-08-30 20:06:18,211 - SMILES input recognized: NCNCCNNC
+2024-08-30 20:06:22,198 - SMILES input recognized: CCC=CO
+2024-08-30 20:06:35,299 - SMILES input recognized: C(C=C)NCC(CN)
+2024-08-30 20:06:36,893 - SMILES input recognized: C(C=C)NCC
+2024-08-30 20:06:39,509 - SMILES input recognized: C1=CC=CC=C1C(CO)C=O
+2024-08-30 20:06:41,227 - SMILES input recognized: C1=CC=CC=C1C(CO)(CO)C=O
+2024-08-30 20:06:42,071 - SMILES input recognized: C1=CC=CC=C1C(CO)C=O
+2024-08-30 20:06:48,768 - SMILES input recognized: C1=CC=CC=C1C(CO)(CO)C=O
+2024-08-30 22:25:47,152 - 'molecular_formula' column already exists.
+2024-08-30 22:25:59,243 - SMILES input recognized: S(O)(O)(O)
+2024-08-30 22:25:59,748 - Error fetching data from PubChem: 'PUGREST.BadRequest: error: '
+2024-08-30 22:26:09,442 - SMILES input recognized: S(=O)(O)(O)
+2024-08-30 22:27:34,053 - SMILES input recognized: O=S(=O)=O
+2024-08-30 22:28:02,777 - SMILES input recognized: OS(=O)O
+2024-08-30 22:28:18,467 - SMILES input recognized: [O]S(=O)O
+2024-08-30 22:28:26,383 - SMILES input recognized: [O]S(=O)[O]
+2024-08-30 22:28:40,092 - SMILES input recognized: [O]S(=O)(O)
+2024-08-30 22:28:45,022 - SMILES input recognized: [O]S(=O)[O]
+2024-08-30 22:28:45,490 - Molecule with SMILES [O]S(=O)[O] already exists in the database.
+2024-08-30 22:28:48,226 - SMILES input recognized: [O]S(=O)[O]
+2024-08-30 22:28:48,627 - Molecule with SMILES [O]S(=O)[O] already exists in the database.
+2024-08-30 22:39:31,656 - SMILES input recognized: NNN
+2024-08-30 22:39:32,130 - Molecule with SMILES NNN already exists in the database.
+2024-08-30 22:39:36,880 - SMILES input recognized: COCCNOCC
+2024-08-30 22:39:37,290 - Molecule with SMILES COCCNOCC already exists in the database.
+2024-08-30 22:39:37,755 - SMILES input recognized: CNO
+2024-08-30 22:39:38,200 - Molecule with SMILES CNO already exists in the database.
+2024-08-30 22:39:40,180 - SMILES input recognized: CCCNCC
+2024-08-30 22:39:40,632 - Molecule with SMILES CCCNCC already exists in the database.
+2024-08-30 22:39:43,148 - SMILES input recognized: CCC=C=C=C=C=C=CC
+2024-08-30 22:39:43,546 - Molecule with SMILES CCC=C=C=C=C=C=CC already exists in the database.
+2024-08-30 22:39:46,334 - SMILES input recognized: C1=CC=CC=C1C(C1=CC=CC=N1)(C1=CC=CC=C1)C1=CN=CC=C1
+2024-08-30 22:39:46,751 - Molecule with SMILES C1=CC=CC=C1C(C1=CC=CC=N1)(C1=CC=CC=C1)C1=CN=CC=C1 already exists in the database.
+2024-08-30 22:40:22,735 - Image saved: C:/Users/Trent/Downloads/quad benzene thingy.png
+2024-08-30 22:40:38,882 - SMILES input recognized: C1=CC=CC=C1C(C1=CC=CC=C1)(C1=CC=CC=C1)C1=CC=CC=C1
+2024-08-30 22:40:39,330 - Molecule with SMILES C1=CC=CC=C1C(C1=CC=CC=C1)(C1=CC=CC=C1)C1=CC=CC=C1 already exists in the database.
+2024-08-30 22:49:11,757 - 'molecular_formula' column already exists.
+2024-08-30 23:48:37,519 - 'molecular_formula' column already exists.
+2024-08-30 23:48:42,033 - SMILES input recognized: CCCNO
+2024-08-30 23:48:42,650 - Molecule with SMILES CCCNO already exists in the database.
+2024-08-30 23:51:27,581 - SMILES input recognized: CCCNCC
+2024-08-30 23:51:33,018 - Column atomic_mass already exists.
+2024-08-30 23:51:33,019 - Column iupac_name already exists.
+2024-08-30 23:52:51,570 - Column atomic_mass already exists.
+2024-08-30 23:52:51,570 - Column iupac_name already exists.
+2024-08-30 23:53:18,053 - SMILES input recognized: CCCCCCC
+2024-08-30 23:53:18,053 - SMILES CCCCCCC already exists in the database.
+2024-08-30 23:53:18,056 - Molecule Info - Formula: C7H16, Weight: 100.20499999999991, Total Atoms: 23, Atom Count: {'C': 7, 'H': 16}, Groups: []
+2024-08-30 23:53:18,485 - Molecule with SMILES CCCCCCC already exists in the database.
+2024-08-30 23:53:45,042 - SMILES input recognized: OOCCC
+2024-08-30 23:53:45,049 - Molecule Info - Formula: C3H8O2, Weight: 76.09499999999996, Total Atoms: 13, Atom Count: {'O': 2, 'C': 3, 'H': 8}, Groups: []
+2024-08-30 23:53:45,784 - Molecule with SMILES OOCCC already exists in the database.
+2024-08-30 23:53:48,492 - SMILES input recognized: OOCO
+2024-08-30 23:53:48,500 - Molecule Info - Formula: CH4O3, Weight: 64.04, Total Atoms: 8, Atom Count: {'O': 3, 'C': 1, 'H': 4}, Groups: ['Alcohol']
+2024-08-30 23:53:49,065 - Molecule with SMILES OOCO already exists in the database.
+2024-08-31 00:13:02,662 - 'molecular_formula' column already exists.
+2024-08-31 00:13:16,857 - 'molecular_formula' column already exists.
+2024-08-31 00:15:15,398 - 'molecular_formula' column already exists.
+2024-08-31 00:22:21,518 - 'molecular_formula' column already exists.
+2024-08-31 00:22:37,803 - 'molecular_formula' column already exists.
+2024-08-31 00:42:40,618 - Column atomic_mass already exists.
+2024-08-31 00:42:40,619 - Column iupac_name already exists.
+2024-08-31 00:42:45,433 - SMILES CCC already exists in the database.
+2024-08-31 00:45:53,017 - Column atomic_mass already exists.
+2024-08-31 00:45:53,017 - Column iupac_name already exists.
+2024-08-31 00:46:03,068 - SMILES C already exists in the database.
+2024-08-31 00:46:03,069 - Molecule Info - Formula: CH4, Weight: 16.042999999999996, Total Atoms: 5
+2024-08-31 00:47:51,935 - Column atomic_mass already exists.
+2024-08-31 00:47:51,936 - Column iupac_name already exists.
+2024-08-31 00:47:56,927 - SMILES  already exists in the database.
+2024-08-31 00:47:56,928 - Molecule Info - Formula: , Weight: 0.0, Total Atoms: 0
+2024-08-31 00:47:57,532 - Error fetching data from PubChem: 400 Client Error: PUGREST.BadRequest for url: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/smiles//property/MolecularFormula,MolecularWeight,IUPACName/JSON
+2024-08-31 00:47:57,533 - Error processing molecule: name 'Draw' is not defined
+2024-08-31 00:50:37,868 - Column atomic_mass already exists.
+2024-08-31 00:50:37,869 - Column iupac_name already exists.
+2024-08-31 00:50:44,052 - SMILES  already exists in the database.
+2024-08-31 00:50:44,053 - Molecule Info - Formula: , Weight: 0.0, Total Atoms: 0
+2024-08-31 00:50:44,490 - Error fetching data from PubChem: 400 Client Error: PUGREST.BadRequest for url: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/smiles//property/MolecularFormula,MolecularWeight,IUPACName/JSON
+2024-08-31 00:50:46,977 - SMILES C already exists in the database.
+2024-08-31 00:50:46,978 - Molecule Info - Formula: CH4, Weight: 16.042999999999996, Total Atoms: 5
+2024-08-31 00:50:47,422 - Molecule with SMILES C already exists in the database.
+2024-08-31 00:50:49,675 - SMILES CCC already exists in the database.
+2024-08-31 00:50:49,676 - Molecule Info - Formula: C3H8, Weight: 44.09700000000002, Total Atoms: 11
+2024-08-31 00:50:50,107 - Molecule with SMILES CCC already exists in the database.
+2024-08-31 01:00:39,055 - Column atomic_mass already exists.
+2024-08-31 01:00:39,056 - Column iupac_name already exists.
+2024-08-31 01:00:48,431 - SMILES CN already exists in the database.
+2024-08-31 01:00:48,432 - Molecule Info - Formula: CH5N, Weight: 31.057999999999996, Total Atoms: 7
+2024-08-31 01:00:49,128 - Molecule with SMILES CN already exists in the database.
+2024-09-02 11:01:53,780 - 'molecular_formula' column already exists.
+2024-09-02 11:37:46,895 - Column atomic_mass already exists.
+2024-09-02 11:37:46,896 - Column iupac_name already exists.
+2024-09-02 11:37:56,154 - Molecule Info - Formula: CH6BNO, Weight: 58.87700000000002, Total Atoms: 10
+2024-09-02 11:37:56,937 - Molecule with SMILES CBNO already exists in the database.
+2024-09-02 11:38:02,565 - Molecule Info - Formula: C3H10BNO, Weight: 86.93099999999995, Total Atoms: 16
+2024-09-02 11:38:03,024 - Molecule with SMILES CBCCNO already exists in the database.
+2024-09-02 11:38:16,414 - Molecule Info - Formula: C4H12BNO, Weight: 100.95799999999994, Total Atoms: 19
+2024-09-02 11:38:16,998 - Molecule with SMILES CBCCCNO already exists in the database.

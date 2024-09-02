@@ -1,0 +1,29 @@
+2024-09-01 20:38:17,042 - INFO - Initialized IsomerCalculator.
+2024-09-01 20:38:17,043 - INFO - Calculating isomers for C4H10.
+2024-09-01 20:40:12,551 - INFO - Initialized IsomerCalculator.
+2024-09-01 20:40:12,552 - INFO - Calculating isomers for C4H10.
+2024-09-01 20:40:12,569 - INFO - Number of isomers for C4H10: 1
+2024-09-01 21:01:09,974 - INFO - Initialized IsomerCalculator.
+2024-09-01 21:01:09,975 - INFO - Calculating isomers for C9H20.
+2024-09-01 21:02:07,004 - INFO - Initialized IsomerCalculator.
+2024-09-01 21:02:07,006 - INFO - Calculating isomers for C3H8.
+2024-09-01 21:02:07,011 - INFO - Number of isomers for C3H8: 1
+2024-09-01 21:02:14,754 - INFO - Initialized IsomerCalculator.
+2024-09-01 21:02:14,754 - INFO - Calculating isomers for C5H12.
+2024-09-01 21:02:14,861 - INFO - Number of isomers for C5H12: 1
+2024-09-01 21:02:19,209 - INFO - Initialized IsomerCalculator.
+2024-09-01 21:02:19,210 - INFO - Calculating isomers for C6H14.
+2024-09-01 21:02:19,855 - INFO - Number of isomers for C6H14: 1
+2024-09-01 21:02:19,920 - INFO - Initialized IsomerCalculator.
+2024-09-01 21:02:19,921 - INFO - Calculating isomers for C6H14.
+2024-09-01 21:02:20,519 - INFO - Number of isomers for C6H14: 1
+2024-09-01 21:02:23,097 - INFO - Initialized IsomerCalculator.
+2024-09-01 21:02:23,097 - INFO - Calculating isomers for C8H18.
+2024-09-01 21:06:44,728 - INFO - Initialized IsomerCalculator.
+2024-09-01 21:06:44,729 - INFO - Calculating isomers for C7H16.
+2024-09-01 21:06:49,558 - INFO - Number of isomers for C7H16: 1
+2024-09-01 21:35:42,422 - INFO - Initialized IsomerCalculator.
+2024-09-01 21:35:42,423 - INFO - Calculating isomers for C4H10, consider hydrogens: False
+2024-09-01 21:35:42,439 - INFO - Number of isomers for C4H10: 1
+2024-09-01 21:35:52,508 - INFO - Initialized IsomerCalculator.
+2024-09-01 21:35:52,508 - INFO - Calculating isomers for C44H90, consider hydrogens: False

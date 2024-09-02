@@ -1,0 +1,132 @@
+import sqlite3
+import pubchempy as pcp
+
+class BondLengthDatabase:
+    def __init__(self, db_name='bond_lengths.db'):
+        self.connection = sqlite3.connect(db_name)
+        self.cursor = self.connection.cursor()
+        self.create_tables()
+        self.elements = Elements()
+
+    def create_tables(self):
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS bonds (
+                id INTEGER PRIMARY KEY,
+                element1 TEXT NOT NULL,
+                element2 TEXT NOT NULL,
+                bond_type TEXT NOT NULL, -- single, double, triple
+                bond_length REAL NOT NULL
+            )
+        ''')
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS compounds (
+                cid INTEGER PRIMARY KEY,
+                smiles TEXT UNIQUE,
+                iupac_name TEXT,
+                molecular_formula TEXT,
+                molecular_weight REAL,
+                xlogp REAL,
+                h_bond_donors INTEGER,
+                h_bond_acceptors INTEGER
+            )
+        ''')
+        self.connection.commit()
+
+    def get_bond_length(self, element1, element2, bond_type):
+        """Fetch bond length from local database or PubChem."""
+        # First, check the local database
+        self.cursor.execute('''
+            SELECT bond_length FROM bonds 
+            WHERE (element1 = ? AND element2 = ? AND bond_type = ?)
+            OR (element1 = ? AND element2 = ? AND bond_type = ?)
+        ''', (element1, element2, bond_type, element2, element1, bond_type))
+        result = self.cursor.fetchone()
+
+        if result:
+            return result[0]
+
+        # If not found locally, consider fetching from an external source like PubChem
+        bond_length = self.fetch_bond_length_pubchem(element1, element2, bond_type)
+
+        if bond_length:
+            self.add_bond_length(element1, element2, bond_type, bond_length)
+            return bond_length
+        else:
+            return None
+
+    def add_bond_length(self, element1, element2, bond_type, bond_length):
+        """Add a new bond length to the database."""
+        self.cursor.execute('''
+            INSERT INTO bonds (element1, element2, bond_type, bond_length)
+            VALUES (?, ?, ?, ?)
+        ''', (element1, element2, bond_type, bond_length))
+        self.connection.commit()
+
+    def fetch_bond_length_pubchem(self, element1, element2, bond_type):
+        """Fetch bond length from PubChem or other external sources."""
+        # Example: Implement a mechanism to get bond lengths from PubChem if available
+        # Note: PubChem typically does not provide bond lengths directly, so this might involve
+        #       querying for similar compounds and estimating based on molecular geometry.
+        print(f"Fetching bond length for {element1}-{element2} ({bond_type}) from PubChem...")
+        # Here you would normally have logic to determine or estimate the bond length
+        # For simplicity, returning None here.
+        return None  # Replace this with actual logic if feasible
+
+    def close(self):
+        self.connection.close()
+
+    def get_compound_data(self, smiles):
+        """Fetch or retrieve compound data using PubChem and local database."""
+        self.cursor.execute('SELECT * FROM compounds WHERE smiles = ?', (smiles,))
+        result = self.cursor.fetchone()
+
+        if result:
+            return result
+        else:
+            compound = self.fetch_compound_pubchem(smiles)
+            if compound:
+                self.add_compound_data(compound)
+                return compound
+            return None
+
+    def fetch_compound_pubchem(self, smiles):
+        """Fetch compound data from PubChem."""
+        try:
+            compounds = pcp.get_compounds(smiles, namespace='smiles')
+            if compounds:
+                compound = compounds[0]
+                return {
+                    'cid': compound.cid,
+                    'smiles': smiles,
+                    'iupac_name': compound.iupac_name,
+                    'molecular_formula': compound.molecular_formula,
+                    'molecular_weight': compound.molecular_weight,
+                    'xlogp': compound.xlogp,
+                    'h_bond_donors': compound.h_bond_donor_count,
+                    'h_bond_acceptors': compound.h_bond_acceptor_count
+                }
+        except Exception as e:
+            print(f"Error fetching compound data from PubChem: {e}")
+            return None
+
+    def add_compound_data(self, compound):
+        """Add a compound's data to the local database."""
+        self.cursor.execute('''
+            INSERT INTO compounds (cid, smiles, iupac_name, molecular_formula, molecular_weight, xlogp, h_bond_donors, h_bond_acceptors)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (compound['cid'], compound['smiles'], compound['iupac_name'], compound['molecular_formula'],
+              compound['molecular_weight'], compound['xlogp'], compound['h_bond_donors'], compound['h_bond_acceptors']))
+        self.connection.commit()
+
+# Example usage:
+bond_db = BondLengthDatabase()
+
+# Fetch or add bond length (C-O single bond)
+bond_length = bond_db.get_bond_length("C", "O", "single")
+print(f"C-O single bond length: {bond_length} Å")
+
+# Fetch compound data for a given SMILES string
+compound_data = bond_db.get_compound_data("CCO")
+print(f"Compound data for CCO: {compound_data}")
+
+bond_db.close()
