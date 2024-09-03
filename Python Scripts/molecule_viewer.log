@@ -119,3 +119,20 @@
 2024-09-02 01:09:58,122 - SMILES input recognized: C1C=CC#1
 2024-09-02 01:19:13,668 - SMILES input recognized: C#CCC#C
 2024-09-02 01:19:51,349 - SMILES input recognized: C=C=C=C=C
+2024-09-02 12:42:54,819 - 'molecular_formula' column already exists.
+2024-09-02 12:42:57,745 - SMILES input recognized: C=C=C
+2024-09-02 12:42:58,659 - Molecule with SMILES C=C=C already exists in the database.
+2024-09-02 12:43:03,043 - SMILES input recognized: C1=CC1
+2024-09-02 12:43:03,442 - Molecule with SMILES C1=CC1 already exists in the database.
+2024-09-02 13:32:01,361 - SMILES input recognized: CCC
+2024-09-02 13:32:01,407 - Error processing molecule: 'ChemDrawMain' object has no attribute 'image_label'
+2024-09-02 13:37:53,657 - SMILES input recognized: CCC
+2024-09-02 13:37:54,212 - Error processing molecule: 'ChemDrawMain' object has no attribute 'atom_count_tree'
+2024-09-02 13:38:03,663 - SMILES input recognized: CCCC
+2024-09-02 13:38:04,161 - Error processing molecule: 'ChemDrawMain' object has no attribute 'atom_count_tree'
+2024-09-02 13:38:37,226 - SMILES input recognized: CCCC
+2024-09-02 13:38:37,720 - Failed to add record {'smiles': 'CCCC', 'iupac_name': 'N/A', 'molecular_formula': 'N/A', 'atomic_mass': 'N/A'}: UNIQUE constraint failed: molecules.smiles
+2024-09-02 13:38:37,721 - Error processing molecule: 'ChemDrawMain' object has no attribute 'atom_count_tree'
+2024-09-02 13:38:39,566 - SMILES input recognized: CCC
+2024-09-02 13:38:40,021 - Failed to add record {'smiles': 'CCC', 'iupac_name': 'N/A', 'molecular_formula': 'N/A', 'atomic_mass': 'N/A'}: UNIQUE constraint failed: molecules.smiles
+2024-09-02 13:38:40,022 - Error processing molecule: 'ChemDrawMain' object has no attribute 'atom_count_tree'

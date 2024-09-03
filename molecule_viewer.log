@@ -4601,3 +4601,165 @@ IUPAC Name: methane
 2024-09-02 11:38:03,024 - Molecule with SMILES CBCCNO already exists in the database.
 2024-09-02 11:38:16,414 - Molecule Info - Formula: C4H12BNO, Weight: 100.95799999999994, Total Atoms: 19
 2024-09-02 11:38:16,998 - Molecule with SMILES CBCCCNO already exists in the database.
+2024-09-02 11:46:50,593 - 'molecular_formula' column already exists.
+2024-09-02 11:46:59,675 - SMILES input recognized: CCC
+2024-09-02 11:47:00,216 - Molecule with SMILES CCC already exists in the database.
+2024-09-02 11:59:09,696 - Column atomic_mass already exists.
+2024-09-02 11:59:09,697 - Column iupac_name already exists.
+2024-09-02 12:12:31,116 - SMILES input recognized: CC
+2024-09-02 12:12:31,165 - Molecule Info - Formula: C2H6, Weight: 30.069999999999993, Total Atoms: 8
+2024-09-02 12:12:38,954 - SMILES input recognized: CCCOCCCC
+2024-09-02 12:12:38,963 - Molecule Info - Formula: C7H16O, Weight: 116.20399999999992, Total Atoms: 24
+2024-09-02 12:17:05,693 - Error generating SMILES: Pre-condition Violation
+	getNumImplicitHs() called without preceding call to calcImplicitValence()
+	Violation occurred on line 289 in file Code\GraphMol\Atom.cpp
+	Failed Expression: d_implicitValence > -1
+	RDKIT: 2024.03.3
+	BOOST: 1_85
+
+2024-09-02 12:17:58,708 - Error generating SMILES: Pre-condition Violation
+	getNumImplicitHs() called without preceding call to calcImplicitValence()
+	Violation occurred on line 289 in file Code\GraphMol\Atom.cpp
+	Failed Expression: d_implicitValence > -1
+	RDKIT: 2024.03.3
+	BOOST: 1_85
+
+2024-09-02 12:25:57,088 - SMILES input recognized: C1CCCC1
+2024-09-02 12:25:57,137 - Molecule Info - Formula: C5H10, Weight: 70.13499999999998, Total Atoms: 15
+2024-09-02 12:26:02,976 - SMILES input recognized: C1CCOCC1
+2024-09-02 12:26:02,988 - Molecule Info - Formula: C5H10O, Weight: 86.13399999999996, Total Atoms: 16
+2024-09-02 12:26:08,116 - SMILES input recognized: C1CCOCC1CCCC
+2024-09-02 12:26:08,125 - Molecule Info - Formula: C9H18O, Weight: 142.2420000000001, Total Atoms: 28
+2024-09-02 12:26:26,655 - SMILES input recognized: C1CCOCC1CCOCC
+2024-09-02 12:26:26,664 - Molecule Info - Formula: C9H18O2, Weight: 158.24100000000016, Total Atoms: 29
+2024-09-02 12:26:40,469 - SMILES input recognized: C1CCOCOC1CCOCC
+2024-09-02 12:26:40,479 - Molecule Info - Formula: C9H18O3, Weight: 174.24000000000015, Total Atoms: 30
+2024-09-02 12:26:45,958 - SMILES input recognized: C1COCOCOC1CCOCC
+2024-09-02 12:26:45,968 - Molecule Info - Formula: C9H18O4, Weight: 190.23900000000015, Total Atoms: 31
+2024-09-02 12:26:52,987 - SMILES input recognized: OC1COCOCOC1COCOCC
+2024-09-02 12:26:52,998 - Molecule Info - Formula: C9H18O6, Weight: 222.23700000000014, Total Atoms: 33
+2024-09-02 12:27:10,441 - SMILES input recognized: CCCOCCC
+2024-09-02 12:27:10,450 - Molecule Info - Formula: C6H14O, Weight: 102.17699999999994, Total Atoms: 21
+2024-09-02 12:27:58,795 - Error generating SMILES: Pre-condition Violation
+	getNumImplicitHs() called without preceding call to calcImplicitValence()
+	Violation occurred on line 289 in file Code\GraphMol\Atom.cpp
+	Failed Expression: d_implicitValence > -1
+	RDKIT: 2024.03.3
+	BOOST: 1_85
+
+2024-09-02 12:28:15,301 - SMILES input recognized: CCCOCCCNC(CC)
+2024-09-02 12:28:15,310 - Molecule Info - Formula: C9H21NO, Weight: 159.2730000000002, Total Atoms: 32
+2024-09-02 12:28:23,026 - SMILES input recognized: CCCOCCCNC(CC)(C)
+2024-09-02 12:28:23,036 - Molecule Info - Formula: C10H23NO, Weight: 173.3000000000002, Total Atoms: 35
+2024-09-02 12:28:56,179 - SMILES input recognized: C(C)(C)
+2024-09-02 12:28:56,187 - Molecule Info - Formula: C3H8, Weight: 44.09700000000002, Total Atoms: 11
+2024-09-02 12:29:01,355 - SMILES input recognized: C(C)(C)(C)
+2024-09-02 12:29:01,364 - Molecule Info - Formula: C4H10, Weight: 58.124000000000024, Total Atoms: 14
+2024-09-02 12:40:27,639 - Error generating SMILES: Pre-condition Violation
+	getNumImplicitHs() called without preceding call to calcImplicitValence()
+	Violation occurred on line 289 in file Code\GraphMol\Atom.cpp
+	Failed Expression: d_implicitValence > -1
+	RDKIT: 2024.03.3
+	BOOST: 1_85
+
+2024-09-02 13:01:58,055 - Error generating SMILES: Pre-condition Violation
+	getNumImplicitHs() called without preceding call to calcImplicitValence()
+	Violation occurred on line 289 in file Code\GraphMol\Atom.cpp
+	Failed Expression: d_implicitValence > -1
+	RDKIT: 2024.03.3
+	BOOST: 1_85
+
+2024-09-02 13:06:37,777 - SMILES input recognized: CC
+2024-09-02 13:06:37,822 - Molecule Info - Formula: C2H6, Weight: 30.069999999999993, Total Atoms: 8
+2024-09-02 13:06:42,179 - SMILES input recognized: CCCCN
+2024-09-02 13:06:42,189 - Molecule Info - Formula: C4H11N, Weight: 73.13899999999995, Total Atoms: 16
+2024-09-02 13:56:33,300 - Column atomic_mass already exists.
+2024-09-02 13:56:33,301 - Column iupac_name already exists.
+2024-09-02 13:56:34,988 - SMILES input recognized: C
+2024-09-02 13:56:34,989 - SMILES C already exists in the database.
+2024-09-02 13:56:34,990 - Molecule Info - Formula: CH4, Weight: 16.042999999999996, Total Atoms: 5, Atom Count: {'C': 1, 'H': 4}, Groups: []
+2024-09-02 13:56:35,491 - Molecule with SMILES C already exists in the database.
+2024-09-02 13:56:36,181 - SMILES input recognized: C#C
+2024-09-02 13:56:36,181 - SMILES C#C already exists in the database.
+2024-09-02 13:56:36,182 - Molecule Info - Formula: C2H2, Weight: 26.037999999999997, Total Atoms: 4, Atom Count: {'C': 2, 'H': 2}, Groups: ['Alkyne']
+2024-09-02 13:56:36,327 - Error fetching data from PubChem: 400 Client Error: PUGREST.BadRequest for url: https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/smiles/C#C/property/MolecularFormula,MolecularWeight,IUPACName/JSON
+2024-09-02 13:56:41,424 - SMILES input recognized: C(C=C)N
+2024-09-02 13:56:41,424 - SMILES C(C=C)N already exists in the database.
+2024-09-02 13:56:41,425 - Molecule Info - Formula: C3H7N, Weight: 57.09600000000002, Total Atoms: 11, Atom Count: {'C': 3, 'N': 1, 'H': 7}, Groups: ['Amine', 'Alkene']
+2024-09-02 13:56:41,870 - Molecule with SMILES C(C=C)N already exists in the database.
+2024-09-02 14:29:26,820 - Column atomic_mass already exists.
+2024-09-02 14:29:26,821 - Column iupac_name already exists.
+2024-09-02 14:32:00,751 - SMILES input recognized: CCCC
+2024-09-02 14:32:01,346 - Failed to add record {'smiles': 'CCCC', 'iupac_name': 'N/A', 'molecular_formula': 'N/A', 'atomic_mass': 'N/A'}: UNIQUE constraint failed: molecules.smiles
+2024-09-02 14:32:01,347 - Error processing molecule: 'ChemDrawMain' object has no attribute 'atom_count_tree'
+2024-09-02 14:38:53,302 - SMILES input recognized: CCCCCC(CC)(CC)
+2024-09-02 14:39:11,255 - Error processing molecule: Python argument types in
+    rdkit.Chem.rdDepictor.Compute2DCoords(NoneType)
+did not match C++ signature:
+    Compute2DCoords(class RDKit::ROMol {lvalue} mol, bool canonOrient=True, bool clearConfs=True, class boost::python::dict {lvalue} coordMap={}, unsigned int nFlipsPerSample=0, unsigned int nSample=0, int sampleSeed=0, bool permuteDeg4Nodes=False, double bondLength=-1.0, bool forceRDKit=False, bool useRingTemplates=False)
+2024-09-02 14:39:16,106 - Error processing molecule: Python argument types in
+    rdkit.Chem.rdDepictor.Compute2DCoords(NoneType)
+did not match C++ signature:
+    Compute2DCoords(class RDKit::ROMol {lvalue} mol, bool canonOrient=True, bool clearConfs=True, class boost::python::dict {lvalue} coordMap={}, unsigned int nFlipsPerSample=0, unsigned int nSample=0, int sampleSeed=0, bool permuteDeg4Nodes=False, double bondLength=-1.0, bool forceRDKit=False, bool useRingTemplates=False)
+2024-09-02 14:39:21,825 - SMILES input recognized: CCCCCC(C)(CC)(CC)
+2024-09-02 14:39:24,444 - SMILES input recognized: CCCCCC(C)(CC)(CC)
+2024-09-02 14:39:29,877 - SMILES input recognized: CCCCCC(CC)(CC)(CC)
+2024-09-02 14:39:41,227 - Error processing molecule: Python argument types in
+    rdkit.Chem.rdDepictor.Compute2DCoords(NoneType)
+did not match C++ signature:
+    Compute2DCoords(class RDKit::ROMol {lvalue} mol, bool canonOrient=True, bool clearConfs=True, class boost::python::dict {lvalue} coordMap={}, unsigned int nFlipsPerSample=0, unsigned int nSample=0, int sampleSeed=0, bool permuteDeg4Nodes=False, double bondLength=-1.0, bool forceRDKit=False, bool useRingTemplates=False)
+2024-09-02 14:39:48,009 - Error processing molecule: Python argument types in
+    rdkit.Chem.rdDepictor.Compute2DCoords(NoneType)
+did not match C++ signature:
+    Compute2DCoords(class RDKit::ROMol {lvalue} mol, bool canonOrient=True, bool clearConfs=True, class boost::python::dict {lvalue} coordMap={}, unsigned int nFlipsPerSample=0, unsigned int nSample=0, int sampleSeed=0, bool permuteDeg4Nodes=False, double bondLength=-1.0, bool forceRDKit=False, bool useRingTemplates=False)
+2024-09-02 14:39:51,296 - Error processing molecule: Python argument types in
+    rdkit.Chem.rdDepictor.Compute2DCoords(NoneType)
+did not match C++ signature:
+    Compute2DCoords(class RDKit::ROMol {lvalue} mol, bool canonOrient=True, bool clearConfs=True, class boost::python::dict {lvalue} coordMap={}, unsigned int nFlipsPerSample=0, unsigned int nSample=0, int sampleSeed=0, bool permuteDeg4Nodes=False, double bondLength=-1.0, bool forceRDKit=False, bool useRingTemplates=False)
+2024-09-02 14:40:05,314 - SMILES input recognized: CCCCCC(CC)(CC)(CC)
+2024-09-02 14:40:12,409 - SMILES input recognized: C(CC)(CC)(CC)
+2024-09-02 14:40:19,472 - SMILES input recognized: C(CC)(CC)(CC)C
+2024-09-02 14:40:25,818 - SMILES input recognized: C(CC)(CC)(CC)CC
+2024-09-02 14:40:29,767 - SMILES input recognized: C(CC)(CC)(CC)CCC
+2024-09-02 14:40:32,728 - SMILES input recognized: C(CC)(CC)(CC)CCCC
+2024-09-02 14:40:37,308 - Error processing molecule: Python argument types in
+    rdkit.Chem.rdDepictor.Compute2DCoords(NoneType)
+did not match C++ signature:
+    Compute2DCoords(class RDKit::ROMol {lvalue} mol, bool canonOrient=True, bool clearConfs=True, class boost::python::dict {lvalue} coordMap={}, unsigned int nFlipsPerSample=0, unsigned int nSample=0, int sampleSeed=0, bool permuteDeg4Nodes=False, double bondLength=-1.0, bool forceRDKit=False, bool useRingTemplates=False)
+2024-09-02 14:40:43,944 - Error processing molecule: Python argument types in
+    rdkit.Chem.rdDepictor.Compute2DCoords(NoneType)
+did not match C++ signature:
+    Compute2DCoords(class RDKit::ROMol {lvalue} mol, bool canonOrient=True, bool clearConfs=True, class boost::python::dict {lvalue} coordMap={}, unsigned int nFlipsPerSample=0, unsigned int nSample=0, int sampleSeed=0, bool permuteDeg4Nodes=False, double bondLength=-1.0, bool forceRDKit=False, bool useRingTemplates=False)
+2024-09-02 14:40:48,660 - SMILES input recognized: C(CC)(CC)(CC)CCCC(CC)(CC)(CC)
+2024-09-02 14:40:53,094 - SMILES input recognized: C(CC)(CC)(CC)CCC(CC)(CC)(CC)
+2024-09-02 14:41:17,637 - Error processing molecule: Python argument types in
+    rdkit.Chem.rdDepictor.Compute2DCoords(NoneType)
+did not match C++ signature:
+    Compute2DCoords(class RDKit::ROMol {lvalue} mol, bool canonOrient=True, bool clearConfs=True, class boost::python::dict {lvalue} coordMap={}, unsigned int nFlipsPerSample=0, unsigned int nSample=0, int sampleSeed=0, bool permuteDeg4Nodes=False, double bondLength=-1.0, bool forceRDKit=False, bool useRingTemplates=False)
+2024-09-02 14:41:24,230 - SMILES input recognized: C(CC)(CC)(CC)CC(CC)(CC)(CC)
+2024-09-02 14:41:27,859 - SMILES input recognized: C(CC)(CC)(CC)C(CC)(CC)(CC)
+2024-09-02 14:41:52,769 - SMILES input recognized: C(CC)(CC)(CCC)C(CC)(CC)(CCC)
+2024-09-02 14:42:04,378 - SMILES input recognized: C(CC)(CC)(CCCN)C(CC)(CC)(CCCN)
+2024-09-02 14:42:11,327 - SMILES input recognized: C(CC)(CC)(NCCCN)C(CC)(CC)(NCCCN)
+2024-09-02 14:42:27,735 - SMILES input recognized: C(CC)(CC)(CCCN)C(CC)(CCNO)(CCCN)
+2024-09-02 14:42:37,313 - SMILES input recognized: C(CC)(CC)(CCCN)C(CCON)(CCNO)(CCCN)
+2024-09-02 14:43:06,972 - SMILES input recognized: C(CC)(CC)(OCCN)C(CCON)(CCNO)(CCCN)
+2024-09-02 14:43:46,938 - SMILES input recognized: C(CNCO)(NCCO)(OCCN)C(CCON)(CCNO)(CCCN)
+2024-09-02 14:44:05,498 - Error processing molecule: Python argument types in
+    rdkit.Chem.rdDepictor.Compute2DCoords(NoneType)
+did not match C++ signature:
+    Compute2DCoords(class RDKit::ROMol {lvalue} mol, bool canonOrient=True, bool clearConfs=True, class boost::python::dict {lvalue} coordMap={}, unsigned int nFlipsPerSample=0, unsigned int nSample=0, int sampleSeed=0, bool permuteDeg4Nodes=False, double bondLength=-1.0, bool forceRDKit=False, bool useRingTemplates=False)
+2024-09-02 14:44:12,707 - SMILES input recognized: C(CNCO)(NCCO)(OCCN)C(CCON)(CCNO)(C=CCN)
+2024-09-02 14:44:43,084 - SMILES input recognized: C(CNCO)(NCCO)(OCCN)C(CCON)(CCNO)(C=CCN)
+2024-09-02 14:44:45,044 - SMILES input recognized: C(CNCO)(NCCO)(OCCN)C(CCON)(CCNO)(C=CCN)
+2024-09-02 14:44:56,881 - SMILES input recognized: S(=O)(O)(O)
+2024-09-02 14:45:00,673 - SMILES input recognized: C1CCCC1
+2024-09-02 14:45:02,316 - SMILES input recognized: C1=C-CC=CC1
+2024-09-02 14:45:05,543 - SMILES input recognized: C1=NC(=C2C(=N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N
+2024-09-02 14:45:10,029 - SMILES input recognized: C1=NC(=C2C(=N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N
+2024-09-02 14:45:15,747 - SMILES input recognized: C1=NC(=C2C(=N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N
+2024-09-02 14:45:16,804 - SMILES input recognized: C1=NC(=C2C(=N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N
+2024-09-02 14:45:17,245 - SMILES input recognized: C1=NC(=C2C(=N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N
+2024-09-02 19:27:38,449 - SMILES input recognized: CCC
+2024-09-02 19:27:39,247 - Failed to add record {'smiles': 'CCC', 'iupac_name': 'N/A', 'molecular_formula': 'N/A', 'atomic_mass': 'N/A'}: UNIQUE constraint failed: molecules.smiles
+2024-09-02 19:27:39,248 - Error processing molecule: 'ChemDrawMain' object has no attribute 'atom_count_tree'

@@ -4,6 +4,9 @@ import networkx as nx
 from networkx.algorithms import isomorphism
 from itertools import permutations
 
+#### DOESNT WORK
+
+
 # Ensure the directories exist
 log_dir = 'ChemDraw/Logs'
 os.makedirs(log_dir, exist_ok=True)

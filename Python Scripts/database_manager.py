@@ -1,103 +1,135 @@
 import os
 import sqlite3
 import logging
-from rdkit import Chem
-from rdkit.Chem import Descriptors
-import pubchempy as pcp
-
-CHEMDRAW_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ChemDraw")
-DATABASE_DIR = os.path.join(CHEMDRAW_DIR, "Databases")
-os.makedirs(DATABASE_DIR, exist_ok=True)
 
 class DatabaseManager:
-    def __init__(self, db_name='molecules.db'):
-        self.db_name = os.path.join(DATABASE_DIR, db_name)
+    def __init__(self, db_name='database.db', table_name='data', schema=None, directory=None):
+        """
+        Initialize the database manager.
+
+        :param db_name: Name of the database file.
+        :param table_name: Name of the table to operate on.
+        :param schema: Dictionary representing the table schema. Format: {'column_name': 'column_type'}
+        :param directory: Directory where the database file will be stored. If None, the current directory is used.
+        """
+        if directory:
+            os.makedirs(directory, exist_ok=True)
+            self.db_name = os.path.join(directory, db_name)
+        else:
+            self.db_name = db_name
+
+        self.table_name = table_name
         self.connection = sqlite3.connect(self.db_name)
         self.cursor = self.connection.cursor()
-        self.create_table()
-        self.update_existing_table()
 
-    def create_table(self):
-        self.cursor.execute('''
-            CREATE TABLE IF NOT EXISTS molecules (
+        if schema:
+            self.create_table(schema)
+
+    def create_table(self, schema):
+        """
+        Create a table with the given schema.
+
+        :param schema: Dictionary representing the table schema. Format: {'column_name': 'column_type'}
+        """
+        columns_definition = ', '.join(f"{col_name} {col_type}" for col_name, col_type in schema.items())
+        self.cursor.execute(f'''
+            CREATE TABLE IF NOT EXISTS {self.table_name} (
                 id INTEGER PRIMARY KEY,
-                smiles TEXT UNIQUE,
-                iupac_name TEXT,
-                molecular_formula TEXT,
-                atomic_mass REAL
+                {columns_definition}
             )
         ''')
         self.connection.commit()
 
-    def add_molecule(self, smiles, atomic_mass, iupac_name, molecular_formula):
+    def add_record(self, record):
+        """
+        Add a new record to the table.
+
+        :param record: Dictionary representing the record to add. Format: {'column_name': value}
+        """
+        placeholders = ', '.join('?' * len(record))
+        columns = ', '.join(record.keys())
+        values = tuple(record.values())
+        
         try:
             self.cursor.execute(
-                "INSERT INTO molecules (smiles, iupac_name, molecular_formula, atomic_mass) VALUES (?, ?, ?, ?)",
-                (smiles, iupac_name, molecular_formula, atomic_mass)
+                f"INSERT INTO {self.table_name} ({columns}) VALUES ({placeholders})", values
             )
             self.connection.commit()
-        except sqlite3.IntegrityError:
-            logging.warning(f"Molecule with SMILES {smiles} already exists in the database.")
+        except sqlite3.IntegrityError as e:
+            logging.warning(f"Failed to add record {record}: {e}")
 
-    def update_existing_table(self):
-        self.cursor.execute("PRAGMA table_info(molecules)")
-        columns = [column[1] for column in self.cursor.fetchall()]
+    def update_record(self, record, where_clause):
+        """
+        Update an existing record in the table.
 
-        if 'molecular_formula' not in columns:
-            self.cursor.execute("ALTER TABLE molecules ADD COLUMN molecular_formula TEXT")
+        :param record: Dictionary representing the updated values. Format: {'column_name': value}
+        :param where_clause: Dictionary representing the condition to identify the record(s) to update. Format: {'column_name': value}
+        """
+        columns = ', '.join(f"{key} = ?" for key in record.keys())
+        values = tuple(record.values())
+        where_clause_str = ' AND '.join(f"{key} = ?" for key in where_clause.keys())
+        where_values = tuple(where_clause.values())
+        
+        try:
+            self.cursor.execute(
+                f"UPDATE {self.table_name} SET {columns} WHERE {where_clause_str}", values + where_values
+            )
             self.connection.commit()
-            logging.info("Added 'molecular_formula' column to 'molecules' table.")
-        else:
-            logging.info("'molecular_formula' column already exists.")
+        except sqlite3.Error as e:
+            logging.warning(f"Failed to update record {record}: {e}")
 
-    def update_molecule(self, smiles, atomic_mass, iupac_name, molecular_formula):
-        self.cursor.execute(
-            "UPDATE molecules SET atomic_mass = ?, iupac_name = ?, molecular_formula = ? WHERE smiles = ?",
-            (atomic_mass, iupac_name, molecular_formula, smiles)
-        )
-        self.connection.commit()
+    def fetch_records(self, columns='*', where_clause=None):
+        """
+        Fetch records from the table.
 
-    def get_all_molecules(self):
-        self.cursor.execute("SELECT smiles, atomic_mass, iupac_name, molecular_formula FROM molecules")
+        :param columns: Columns to fetch, separated by commas, or '*' for all columns.
+        :param where_clause: Dictionary representing the condition to filter the records. Format: {'column_name': value}
+        :return: List of tuples containing the fetched records.
+        """
+        where_clause_str = ''
+        where_values = ()
+        if where_clause:
+            where_clause_str = 'WHERE ' + ' AND '.join(f"{key} = ?" for key in where_clause.keys())
+            where_values = tuple(where_clause.values())
+        
+        self.cursor.execute(f"SELECT {columns} FROM {self.table_name} {where_clause_str}", where_values)
         return self.cursor.fetchall()
 
-    def update_all_molecules(self):
-        molecules = self.get_all_molecules()
-        for molecule in molecules:
-            smiles, atomic_mass, iupac_name, molecular_formula = molecule
-            updated = False
+    def fetch_record(self, columns='*', where_clause=None):
+        """
+        Fetch a single record from the table.
 
-            if iupac_name is None or molecular_formula is None or atomic_mass is None:
-                pubchem_data = self.fetch_pubchem_data(smiles)
-                if pubchem_data:
-                    if iupac_name is None and pubchem_data['iupac_name'] != "N/A":
-                        iupac_name = pubchem_data['iupac_name']
-                        updated = True
-                    if molecular_formula is None and pubchem_data['molecular_formula'] != "N/A":
-                        molecular_formula = pubchem_data['molecular_formula']
-                        updated = True
-                    if atomic_mass is None and pubchem_data['atomic_mass'] != "N/A":
-                        atomic_mass = pubchem_data['atomic_mass']
-                        updated = True
+        :param columns: Columns to fetch, separated by commas, or '*' for all columns.
+        :param where_clause: Dictionary representing the condition to filter the record. Format: {'column_name': value}
+        :return: Tuple containing the fetched record, or None if no record is found.
+        """
+        records = self.fetch_records(columns=columns, where_clause=where_clause)
+        return records[0] if records else None
 
-                if updated:
-                    self.update_molecule(smiles, atomic_mass, iupac_name, molecular_formula)
+    def update_schema(self, schema_updates):
+        """
+        Dynamically update the table schema by adding new columns if they don't already exist.
 
-    def fetch_pubchem_data(self, smiles):
-        try:
-            compound = pcp.get_compounds(smiles, namespace='smiles')
-            if compound:
-                return {
-                    'molecular_formula': compound[0].molecular_formula or 'N/A',
-                    'atomic_mass': compound[0].molecular_weight or 'N/A',
-                    'iupac_name': compound[0].iupac_name or 'N/A',
-                }
-            else:
-                logging.warning(f"No data found for SMILES {smiles}.")
-                return {'molecular_formula': 'N/A', 'atomic_mass': 'N/A', 'iupac_name': 'N/A'}
-        except Exception as e:
-            logging.error(f"Error fetching data for SMILES {smiles}: {e}")
-            return {'molecular_formula': 'N/A', 'atomic_mass': 'N/A', 'iupac_name': 'N/A'}
+        :param schema_updates: Dictionary representing the new columns to add. Format: {'column_name': 'column_type'}
+        """
+        existing_columns = self.get_columns()
+        for column_name, column_type in schema_updates.items():
+            if column_name not in existing_columns:
+                self.cursor.execute(f"ALTER TABLE {self.table_name} ADD COLUMN {column_name} {column_type}")
+                self.connection.commit()
+                logging.info(f"Added '{column_name}' column to '{self.table_name}' table.")
+
+    def get_columns(self):
+        """
+        Get the list of columns in the table.
+
+        :return: List of column names.
+        """
+        self.cursor.execute(f"PRAGMA table_info({self.table_name})")
+        return [column[1] for column in self.cursor.fetchall()]
 
     def close(self):
+        """
+        Close the database connection.
+        """
         self.connection.close()

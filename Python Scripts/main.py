@@ -9,6 +9,7 @@ class MainApp(QWidget):
     def __init__(self):
         super().__init__()
         self.theme_manager = ThemeManager()
+        self.added_scripts = []  # List to keep track of added scripts
         self.initUI()
         self.load_settings()
 
@@ -21,7 +22,7 @@ class MainApp(QWidget):
 
         self.theme_manager.apply_theme(self)
 
-        # Layout for buttons
+        # Layout for script buttons
         self.script_layout = QVBoxLayout()
         self.layout.addLayout(self.script_layout)
 
@@ -63,31 +64,41 @@ class MainApp(QWidget):
         self.theme_button.clicked.connect(lambda: self.theme_manager.open_theme_settings(self))
         self.theme_button.move(370, 270)  # Place it at the bottom right corner
         self.layout.addWidget(self.theme_button)
-        
-        self.load_settings()
 
     def add_script(self):
         options = QFileDialog.Options()
         script, _ = QFileDialog.getOpenFileName(self, "Select Python Script", "", "Python Files (*.py);;All Files (*)", options=options)
         if script:
             script_name = os.path.basename(script).replace('.py', '')
-            button = QPushButton(script_name, self)
-            button.setStyleSheet(self.theme_manager.get_button_style())
-            button.clicked.connect(lambda: self.run_script(script))
-            self.script_layout.addWidget(button)
-            self.save_settings()
+            # Check if script is already added
+            if script_name not in self.added_scripts:
+                button = QPushButton(script_name, self)
+                button.setStyleSheet(self.theme_manager.get_button_style())
+                button.clicked.connect(lambda _, p=script: self.run_script(p))  # Pass the script path
+                button.setToolTip(script)  # Store script path as tooltip
+                self.script_layout.addWidget(button)
+                self.added_scripts.append(script_name)  # Add to list of added scripts
+                self.save_settings()
+            else:
+                QMessageBox.warning(self, "Warning", f"The script '{script_name}' is already added.")
 
     def remove_script(self):
-        # Remove selected script
+        # Remove the last added script
         if self.script_layout.count() > 0:
             script_button = self.script_layout.itemAt(self.script_layout.count() - 1).widget()
             if script_button:
+                script_name = script_button.text()
+                self.added_scripts.remove(script_name)  # Remove from list of added scripts
                 script_button.setParent(None)
             self.save_settings()
 
     def run_script(self, script_path):
         try:
-            os.system(f'python "{script_path}"')
+            # Ensure the path is absolute and points to a .py file
+            if os.path.isfile(script_path):
+                os.system(f'python "{script_path}"')
+            else:
+                QMessageBox.critical(self, "Error", f"Script file not found: {script_path}")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Failed to run script: {str(e)}")
 
@@ -99,10 +110,13 @@ class MainApp(QWidget):
             c.execute('SELECT name, path FROM scripts')
             rows = c.fetchall()
             for name, path in rows:
-                button = QPushButton(name, self)
-                button.setStyleSheet(self.theme_manager.get_button_style())
-                button.clicked.connect(lambda _, p=path: self.run_script(p))
-                self.script_layout.addWidget(button)
+                if name not in self.added_scripts:  # Ensure no duplicates on load
+                    button = QPushButton(name, self)
+                    button.setStyleSheet(self.theme_manager.get_button_style())
+                    button.clicked.connect(lambda _, p=path: self.run_script(p))  # Pass the script path
+                    button.setToolTip(path)  # Store script path as tooltip
+                    self.script_layout.addWidget(button)
+                    self.added_scripts.append(name)
             conn.close()
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Failed to load settings: {str(e)}")
@@ -115,7 +129,7 @@ class MainApp(QWidget):
             for i in range(self.script_layout.count()):
                 script_button = self.script_layout.itemAt(i).widget()
                 name = script_button.text()
-                path = script_button.toolTip()
+                path = script_button.toolTip()  # Retrieve the stored script path
                 c.execute('INSERT INTO scripts (name, path) VALUES (?, ?)', (name, path))
             conn.commit()
             conn.close()

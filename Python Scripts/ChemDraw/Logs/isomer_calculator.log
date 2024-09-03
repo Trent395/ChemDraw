@@ -27,3 +27,12 @@
 2024-09-01 21:35:42,439 - INFO - Number of isomers for C4H10: 1
 2024-09-01 21:35:52,508 - INFO - Initialized IsomerCalculator.
 2024-09-01 21:35:52,508 - INFO - Calculating isomers for C44H90, consider hydrogens: False
+2024-09-02 11:49:34,144 - INFO - Initialized IsomerCalculator.
+2024-09-02 11:49:34,145 - INFO - Calculating isomers for C4H10, consider hydrogens: False
+2024-09-02 11:49:34,159 - INFO - Number of isomers for C4H10: 1
+2024-09-02 11:49:37,179 - INFO - Initialized IsomerCalculator.
+2024-09-02 11:49:37,179 - INFO - Calculating isomers for C6H14, consider hydrogens: False
+2024-09-02 11:49:37,785 - INFO - Number of isomers for C6H14: 1
+2024-09-02 11:49:38,289 - INFO - Initialized IsomerCalculator.
+2024-09-02 11:49:38,289 - INFO - Calculating isomers for C6H14, consider hydrogens: False
+2024-09-02 11:49:38,852 - INFO - Number of isomers for C6H14: 1
