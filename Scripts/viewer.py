@@ -18,6 +18,7 @@ from molecule_analysis import MoleculeAnalysis  # Script that makes molecule ima
 from smiles_generator import SMILESGenerator
 from log_viewer import LogViewer
 from settings_manager import SettingsManager
+from button_actions import ButtonActions
 
 # Logging setup (placed at the top)
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Project root directory
@@ -40,28 +41,31 @@ logging.info("Logging setup complete")
 class MoleculeViewer(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.settings_manager = SettingsManager()
+
+        #Initialize the Database Manager and Hydrogen Calculator
         self.db_manager = DatabaseManager()
         self.h_calculator = HydrogenCalculator()
         self.setWindowTitle("Molecule Viewer")
-        
 
         # Initialize the settings manager
         self.settings_manager = SettingsManager()
         self.settings_manager.load_settings()  # Load settings at startup
 
+        # Initialize the button actions module
+        self.button_actions = ButtonActions(self)
+        
         # Set the initial dark mode based on settings
         self.is_dark_mode = self.settings_manager.get_setting('dark_mode', True)
-
 
         # Set the window size from saved settings
         #self.setGeometry(100, 100, 2000, 1000) #old method of creating window size
         window_size = self.settings_manager.get_setting('window_size', '1600,900')
         width, height = map(int, window_size.split(','))  # Parse width and height as integers
         self.resize(width, height)
-
-        self.create_menu()  # Ensure the menu is created
+        
         self.initialize_ui()
+        self.create_menu()  # Ensure the menu is created
+
         
         # Initialize the SMILESGenerator
         elements = ['C', 'H']
