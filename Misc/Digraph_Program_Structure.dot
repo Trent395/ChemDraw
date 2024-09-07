@@ -1,0 +1,8 @@
+digraph ProgramStructure {
+    MoleculeViewer -> ButtonActions;
+    MoleculeViewer -> TablePopulator;
+    MoleculeViewer -> SettingsManager;
+    ButtonActions -> MoleculeAnalysis;
+    ButtonActions -> DatabaseManager;
+    TablePopulator -> DatabaseManager;
+}

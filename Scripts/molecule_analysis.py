@@ -10,6 +10,15 @@ class MoleculeAnalysis:
     def __init__(self, smiles):
         self.smiles = smiles
         self.mol = self.get_molecule()
+     
+    def get_bond_polarity(self, en_diff):
+        """Classify the bond type based on electronegativity difference (ΔEN)."""
+        if en_diff < 0.5:
+            return "Non-Polar"
+        elif 0.5 <= en_diff < 1.7:
+            return "Polar"
+        else:
+            return "Ionic"
 
     def get_molecule(self):
         if self.smiles and isinstance(self.smiles, str):

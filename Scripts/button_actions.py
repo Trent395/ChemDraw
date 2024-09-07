@@ -1,13 +1,18 @@
 # button_actions.py
 
+import os
 import logging
 import webbrowser
-from PyQt5.QtWidgets import QMessageBox, QFileDialog, QInputDialog
+from PyQt5.QtWidgets import QFileDialog, QMessageBox, QInputDialog, QDialog, QGridLayout, QLabel
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtCore import Qt
 from database_manager import DatabaseManager
-from molecule_analysis import MoleculeAnalysis  # Script that makes molecule image
+from molecule_analysis import MoleculeAnalysis
 from hydrogen_calculator import HydrogenCalculator
+from log_viewer import LogViewer
 from rdkit import Chem
 from PIL import ImageQt
+
 
 class ButtonActions:
     def __init__(self, viewer_instance):
@@ -40,7 +45,8 @@ class ButtonActions:
             self.viewer.info_label.setText(mol_analysis.get_info_text(molecule_data))
             self.viewer.image_label.setPixmap(mol_analysis.get_pixmap())
 
-            self.populate_atom_bond_info(mol_analysis)
+            # Call the MoleculeViewer's method to populate atom and bond information (viewer is responsible for this)
+            self.viewer.table_populator.populate_atom_bond_info(mol_analysis)
 
             # Hydrogen calculation
             calculated_hydrogen_count = self.h_calculator.calculate_hydrogen_count(smiles_input)
@@ -48,40 +54,11 @@ class ButtonActions:
 
             # Update database and display
             self.db_manager.upsert_molecule(smiles_input, molecule_data)
-            self.viewer.populate_database_view()
+            self.viewer.table_populator.populate_database_view()  # Make sure to call this after updating
 
         except Exception as e:
             logging.error(f"Error processing molecule: {e}")
             QMessageBox.critical(self.viewer, "Error", f"Could not process the molecule: {e}")
-
-    def populate_atom_bond_info(self, mol_analysis):
-        """
-        Populate atom and bond information tables based on the MoleculeAnalysis results.
-        """
-        atom_counts, bond_info = mol_analysis.get_atom_bond_info()
-        self.viewer.atom_count_table.setRowCount(len(atom_counts))
-
-        # Populate atom count table
-        for row_idx, (element, count) in enumerate(atom_counts.items()):
-            self.viewer.atom_count_table.setItem(row_idx, 0, QTableWidgetItem(element))
-            self.viewer.atom_count_table.setItem(row_idx, 1, QTableWidgetItem(str(count)))
-
-        # Populate bond info table
-        self.viewer.bond_info_table.setRowCount(len(bond_info))
-        for row_idx, bond in enumerate(bond_info):
-            bond_type = self.get_bond_polarity(float(bond[1]))  # Classify bond type based on ΔEN
-            for col_idx, value in enumerate(bond):
-                self.viewer.bond_info_table.setItem(row_idx, col_idx, QTableWidgetItem(value))
-            self.viewer.bond_info_table.setItem(row_idx, 3, QTableWidgetItem(bond_type))  # Add bond type
-
-    def get_bond_polarity(self, en_diff):
-        """Classify the bond type based on electronegativity difference (ΔEN)."""
-        if en_diff < 0.5:
-            return "Non-Polar"
-        elif 0.5 <= en_diff < 1.7:
-            return "Polar"
-        else:
-            return "Ionic"
 
     def save_image(self):
         """Save the displayed molecule image to a file."""
@@ -107,7 +84,7 @@ class ButtonActions:
             molecule_data['nickname'] = nickname
 
             self.db_manager.upsert_molecule(selected_smiles, molecule_data)
-            self.viewer.populate_database_view()
+            self.viewer.table_populator.populate_database_view()
 
             QMessageBox.information(self.viewer, "Nickname Added", "The nickname has been added successfully.")
         else:
@@ -122,3 +99,38 @@ class ButtonActions:
         else:
             QMessageBox.warning(self.viewer, "No SMILES Input", "Please enter a valid SMILES string or select a molecule from the database.")
 
+    def update_all_database(self):
+        """Update the database with all entries and refresh the view."""
+        self.db_manager.update_all_database()
+        self.viewer.table_populator.populate_database_view()  # Refresh after updating the database
+        QMessageBox.information(self.viewer, "Update Complete", "All database entries have been updated.")
+        logging.info("All database entries have been updated.")
+
+    def open_log_viewer(self):
+        """Open the log viewer for displaying log entries."""
+        root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        logs_folder = os.path.join(root_dir, 'Logs')
+        log_file_name = 'molecule_viewer.log'
+        log_viewer = LogViewer(logs_folder, log_file_name)
+        log_viewer.exec_()
+
+    def generate_smiles_grid(self):
+        """Generate a grid of SMILES images for valid SMILES strings."""
+        valid_smiles_list = self.viewer.smiles_generator.generate_valid_smiles()
+        grid_window = QDialog(self.viewer)
+        grid_window.setWindowTitle("SMILES Grid")
+        grid_window.setGeometry(100, 100, 1000, 800)
+        grid_layout = QGridLayout(grid_window)
+
+        for idx, smiles in enumerate(valid_smiles_list):
+            mol = Chem.MolFromSmiles(smiles)
+            img = Draw.MolToImage(mol)  # Generate molecule image
+            qim = ImageQt(img)
+            pix = QPixmap.fromImage(qim)
+            label = QLabel(self.viewer)
+            label.setPixmap(pix)
+            row, col = divmod(idx, 5)
+            grid_layout.addWidget(label, row, col)
+
+        grid_window.setLayout(grid_layout)
+        grid_window.exec_()

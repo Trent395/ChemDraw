@@ -167,3 +167,93 @@
 2024-09-07 11:40:54,227 - root - INFO - Logging setup complete
 2024-09-07 11:41:12,104 - root - INFO - Logging setup complete
 2024-09-07 11:50:04,870 - root - INFO - Logging setup complete
+2024-09-07 13:02:07,772 - root - INFO - Logging setup complete
+2024-09-07 13:07:08,016 - root - INFO - Logging setup complete
+2024-09-07 13:08:12,240 - root - INFO - Logging setup complete
+2024-09-07 13:12:05,437 - root - INFO - Logging setup complete
+2024-09-07 13:38:51,585 - root - INFO - Logging setup complete
+2024-09-07 13:40:34,753 - root - INFO - Logging setup complete
+2024-09-07 13:41:45,237 - root - INFO - Logging setup complete
+2024-09-07 13:42:09,274 - root - INFO - Logging setup complete
+2024-09-07 13:43:22,022 - root - INFO - Logging setup complete
+2024-09-07 13:44:09,148 - root - INFO - Logging setup complete
+2024-09-07 13:45:26,488 - root - INFO - Logging setup complete
+2024-09-07 13:46:33,808 - root - INFO - Logging setup complete
+2024-09-07 13:47:43,077 - root - INFO - Logging setup complete
+2024-09-07 13:49:16,916 - root - INFO - Logging setup complete
+2024-09-07 13:49:26,208 - root - ERROR - Invalid SMILES input: None or empty string received.
+2024-09-07 13:49:29,802 - root - ERROR - Invalid SMILES input: None or empty string received.
+2024-09-07 13:49:36,560 - root - ERROR - Error processing molecule: 'ButtonActions' object has no attribute 'populate_atom_bond_info'
+2024-09-07 13:52:04,768 - root - INFO - Logging setup complete
+2024-09-07 13:52:09,655 - root - ERROR - Invalid SMILES input: None or empty string received.
+2024-09-07 13:52:12,489 - pubchempy - INFO - 'PUGREST.NotFound'
+2024-09-07 13:52:12,516 - root - ERROR - Error processing molecule: 'ButtonActions' object has no attribute 'populate_atom_bond_info'
+2024-09-07 13:56:20,955 - root - INFO - Logging setup complete
+2024-09-07 13:57:33,719 - root - INFO - Logging setup complete
+2024-09-07 13:57:36,593 - root - ERROR - Error processing molecule: 'ButtonActions' object has no attribute 'populate_atom_bond_info'
+2024-09-07 14:00:30,545 - root - INFO - Logging setup complete
+2024-09-07 14:00:33,063 - root - ERROR - Error processing molecule: 'ButtonActions' object has no attribute 'table_populator'
+2024-09-07 14:02:18,634 - root - INFO - Logging setup complete
+2024-09-07 14:02:21,798 - root - ERROR - Error processing molecule: 'ButtonActions' object has no attribute 'table_populator'
+2024-09-07 14:03:36,484 - root - INFO - Logging setup complete
+2024-09-07 14:03:40,564 - root - ERROR - Error processing molecule: 'ButtonActions' object has no attribute 'table_populator'
+2024-09-07 14:05:22,711 - root - INFO - Logging setup complete
+2024-09-07 14:05:25,770 - root - INFO - SMILES: C
+2024-09-07 14:05:25,770 - root - INFO - Bond count: 0
+2024-09-07 14:05:25,771 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 14:05:25,771 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 14:05:25,771 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 14:05:27,674 - root - ERROR - Error processing molecule: 'TablePopulator' object has no attribute 'get_bond_polarity'
+2024-09-07 14:12:20,711 - root - INFO - Logging setup complete
+2024-09-07 14:12:21,039 - root - INFO - Populating database with 6 molecules.
+2024-09-07 14:12:23,673 - root - INFO - Populating atom counts: {'C': 3}
+2024-09-07 14:12:23,674 - root - INFO - Bond: C-C, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:12:23,674 - root - INFO - Bond: C-C, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:12:23,675 - root - INFO - SMILES: C=C=C
+2024-09-07 14:12:23,675 - root - INFO - Bond count: 4
+2024-09-07 14:12:23,675 - root - INFO - Atom counts: {'C': 3, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 14:12:23,675 - root - INFO - C: 3, N: 0, O: 0, X: 0, B: 4
+2024-09-07 14:12:23,676 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 14:12:23,679 - root - INFO - Populating database with 6 molecules.
+2024-09-07 14:12:23,680 - root - INFO - Populating atom counts: {'C': 3}
+2024-09-07 14:12:23,681 - root - INFO - Bond: C-C, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:12:23,681 - root - INFO - Bond: C-C, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:12:25,554 - root - INFO - Populating atom counts: {'O': 2}
+2024-09-07 14:12:25,555 - root - INFO - Bond: O-O, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:12:25,556 - root - INFO - SMILES: O=O
+2024-09-07 14:12:25,556 - root - INFO - Bond count: 2
+2024-09-07 14:12:25,556 - root - INFO - Atom counts: {'C': 0, 'N': 0, 'O': 2, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 14:12:25,556 - root - INFO - C: 0, N: 0, O: 2, X: 0, B: 2
+2024-09-07 14:12:25,557 - root - INFO - Calculated Hydrogens: 0
+2024-09-07 14:12:25,559 - root - INFO - Populating database with 6 molecules.
+2024-09-07 14:12:25,559 - root - INFO - Populating atom counts: {'O': 2}
+2024-09-07 14:12:25,560 - root - INFO - Bond: O-O, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:12:28,140 - pubchempy - INFO - 'PUGREST.NotFound'
+2024-09-07 14:12:28,150 - root - INFO - Populating atom counts: {'C': 2, 'B': 1}
+2024-09-07 14:12:28,150 - root - INFO - Bond: C-B, EN Difference: 2.55, Bond Type: Ionic
+2024-09-07 14:12:28,151 - root - INFO - Bond: B-C, EN Difference: 2.55, Bond Type: Ionic
+2024-09-07 14:12:28,151 - root - INFO - SMILES: CBC
+2024-09-07 14:12:28,151 - root - INFO - Bond count: 2
+2024-09-07 14:12:28,151 - root - INFO - Atom counts: {'C': 2, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 14:12:28,151 - root - INFO - C: 2, N: 0, O: 0, X: 0, B: 2
+2024-09-07 14:12:28,152 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 14:12:28,154 - root - INFO - Populating database with 6 molecules.
+2024-09-07 14:12:28,155 - root - INFO - Populating atom counts: {'C': 2, 'B': 1}
+2024-09-07 14:12:28,155 - root - INFO - Bond: C-B, EN Difference: 2.55, Bond Type: Ionic
+2024-09-07 14:12:28,155 - root - INFO - Bond: B-C, EN Difference: 2.55, Bond Type: Ionic
+2024-09-07 14:12:52,138 - root - INFO - Populating atom counts: {'C': 3}
+2024-09-07 14:12:52,138 - root - INFO - Bond: C-C, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:12:52,138 - root - INFO - Bond: C-C, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:12:52,139 - root - INFO - SMILES: CCC
+2024-09-07 14:12:52,139 - root - INFO - Bond count: 2
+2024-09-07 14:12:52,139 - root - INFO - Atom counts: {'C': 3, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 14:12:52,139 - root - INFO - C: 3, N: 0, O: 0, X: 0, B: 2
+2024-09-07 14:12:52,139 - root - INFO - Calculated Hydrogens: 8
+2024-09-07 14:12:52,141 - root - INFO - Populating database with 6 molecules.
+2024-09-07 14:12:52,142 - root - INFO - Populating atom counts: {'C': 3}
+2024-09-07 14:12:52,142 - root - INFO - Bond: C-C, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:12:52,142 - root - INFO - Bond: C-C, EN Difference: 0.00, Bond Type: Non-Polar
+2024-09-07 14:13:29,720 - pubchempy - INFO - 'PUGREST.NotFound'
+2024-09-07 14:13:31,487 - root - INFO - All database entries have been updated.
+2024-09-07 14:13:31,487 - root - INFO - Populating database with 6 molecules.
+2024-09-07 14:13:32,798 - root - INFO - All database entries have been updated.
