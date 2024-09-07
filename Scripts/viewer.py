@@ -40,6 +40,7 @@ logging.info("Logging setup complete")
 class MoleculeViewer(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.settings_manager = SettingsManager()
         self.db_manager = DatabaseManager()
         self.h_calculator = HydrogenCalculator()
         self.setWindowTitle("Molecule Viewer")
@@ -163,15 +164,11 @@ class MoleculeViewer(QMainWindow):
             settings_action = menubar.addAction("Settings")
             settings_action.triggered.connect(self.open_settings_page)
 
-            # Add log viewer option
-            log_viewer_action = menubar.addAction("View Logs")
-            log_viewer_action.triggered.connect(self.open_log_viewer)
-
     def open_settings_page(self):
         """
         Open the settings page to modify application settings.
         """
-        settings_page = SettingsManager(db_name='molecules.db', parent=self)
+        settings_page = SettingsManager(db_name='settings.db', parent=self)
         settings_page.exec_()
 
     def closeEvent(self, event):
@@ -179,10 +176,10 @@ class MoleculeViewer(QMainWindow):
         Override close event to save window size and dark mode setting.
         """
         # Save the current window size
-        self.settings_manager.set_setting('window_size', f'{self.size().width()},{self.size().height()}')
+        self.settings_manager.save_setting('window_size', f'{self.size().width()},{self.size().height()}')
 
         # Save the dark mode setting
-        self.settings_manager.set_setting('dark_mode', 'True' if self.is_dark_mode else 'False')
+        self.settings_manager.save_setting('dark_mode', 'True' if self.is_dark_mode else 'False')
 
         self.settings_manager.close()
         event.accept()
@@ -211,7 +208,7 @@ class MoleculeViewer(QMainWindow):
             # Hydrogen calculation
             calculated_hydrogen_count = self.h_calculator.calculate_hydrogen_count(user_input)
             self.hydrogen_count_label.setText(f"Calculated Hydrogen Count: {calculated_hydrogen_count}")
-
+            #\n (C,N,O,F,Cl,Br,I,H )
             # Update database and display
             self.db_manager.upsert_molecule(user_input, molecule_data)
             self.populate_database_view()

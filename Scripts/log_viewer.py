@@ -1,50 +1,75 @@
+# log_viewer.py
+
 import os
-from PyQt5.QtWidgets import QDialog, QVBoxLayout, QTextEdit
+from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QPushButton, QTextEdit, QFileDialog
 
 class LogViewer(QDialog):
     """
-    A generic log viewer class that displays the contents of a log file in a dialog.
-    
-    Attributes:
-    log_folder (str): The folder where the log file is located.
-    log_file_name (str): The name of the log file to display.
+    A class for viewing log files from the 'Logs' folder using a simple GUI.
+    Automatically loads the 'molecule_viewer.log' file if available.
     """
-    
-    def __init__(self, log_folder, log_file_name):
+
+    def __init__(self, logs_folder='Logs', log_file_name='molecule_viewer.log', parent=None):
         """
-        Initialize the LogViewer dialog.
-        
+        Initialize the LogViewer, load the default log file ('molecule_viewer.log'), or allow the user to select one.
+
         Args:
-        log_folder (str): Path to the folder where the log file is stored.
-        log_file_name (str): Name of the log file to display.
+            logs_folder (str): The folder where log files are stored (default is 'Logs').
+            log_file_name (str): The default log file to load (default is 'molecule_viewer.log').
         """
-        super().__init__()
-        self.log_folder = log_folder
-        self.log_file_name = log_file_name
-        self.setWindowTitle("Log Viewer")  # Set the title of the dialog
-        self.setGeometry(100, 100, 600, 400)  # Set the size and position of the window
+        super().__init__(parent)
 
-        # Create a layout to hold the log text display
-        layout = QVBoxLayout()
+        # Set the root directory and log folder
+        root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.logs_folder = os.path.join(root_dir, logs_folder)
 
-        # Create a QTextEdit widget for displaying the log file content (read-only)
-        self.log_text_edit = QTextEdit(self)
-        self.log_text_edit.setReadOnly(True)  # Make the text box read-only
-        layout.addWidget(self.log_text_edit)  # Add the text box to the layout
+        # Set up the GUI
+        self.setWindowTitle("Log Viewer")
+        self.setGeometry(300, 300, 600, 400)
+        self.layout = QVBoxLayout()
 
-        self.setLayout(layout)  # Set the layout for the dialog
-        self.load_log_file()  # Load the log file content on initialization
+        # Text area to display log content
+        self.log_text_area = QTextEdit(self)
+        self.log_text_area.setReadOnly(True)
+        self.layout.addWidget(self.log_text_area)
 
-    def load_log_file(self):
+        # Load the default log file if provided
+        if log_file_name:
+            self.load_log_file(log_file_name)
+
+        # Buttons for selecting a log file and closing the viewer
+        button_layout = QHBoxLayout()
+
+        load_button = QPushButton("Load Log File", self)
+        load_button.clicked.connect(self.select_log_file)
+        button_layout.addWidget(load_button)
+
+        close_button = QPushButton("Close", self)
+        close_button.clicked.connect(self.close)
+        button_layout.addWidget(close_button)
+
+        self.layout.addLayout(button_layout)
+        self.setLayout(self.layout)
+
+    def load_log_file(self, file_name):
         """
-        Load the log file and display its content in the QTextEdit widget.
+        Load the content of a log file and display it in the text area.
+
+        Args:
+            file_name (str): The name of the log file to load.
         """
-        log_file_path = os.path.join(self.log_folder, self.log_file_name)  # Construct full log file path
-        
-        try:
-            # Try to open and read the log file content
-            with open(log_file_path, 'r') as log_file:
-                self.log_text_edit.setPlainText(log_file.read())  # Display the content in the text box
-        except FileNotFoundError:
-            # If the log file is not found, display an error message in the text box
-            self.log_text_edit.setPlainText("Log file not found.")
+        log_file_path = os.path.join(self.logs_folder, file_name)
+
+        if os.path.exists(log_file_path):
+            with open(log_file_path, 'r') as file:
+                self.log_text_area.setText(file.read())
+        else:
+            self.log_text_area.setText(f"Log file {file_name} not found.")
+
+    def select_log_file(self):
+        """
+        Open a file dialog for the user to select a log file to view.
+        """
+        file_path, _ = QFileDialog.getOpenFileName(self, "Select Log File", self.logs_folder, "Log Files (*.log *.txt)")
+        if file_path:
+            self.load_log_file(os.path.basename(file_path))
