@@ -1,0 +1,127 @@
+2024-09-07 10:27:34,779 - root - INFO - Logging setup complete
+2024-09-07 10:27:39,649 - root - INFO - SMILES: C
+2024-09-07 10:27:39,649 - root - INFO - Bond count: 0
+2024-09-07 10:27:39,650 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:27:39,650 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 10:27:39,650 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:28:28,616 - root - INFO - SMILES: C
+2024-09-07 10:28:28,616 - root - INFO - Bond count: 0
+2024-09-07 10:28:28,617 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:28:28,617 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 10:28:28,617 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:28:29,591 - root - INFO - SMILES: C
+2024-09-07 10:28:29,592 - root - INFO - Bond count: 0
+2024-09-07 10:28:29,592 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:28:29,592 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 10:28:29,592 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:28:30,610 - root - INFO - SMILES: C
+2024-09-07 10:28:30,610 - root - INFO - Bond count: 0
+2024-09-07 10:28:30,610 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:28:30,610 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 10:28:30,610 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:28:38,852 - root - INFO - SMILES: C
+2024-09-07 10:28:38,852 - root - INFO - Bond count: 0
+2024-09-07 10:28:38,852 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:28:38,852 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 10:28:38,852 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:32:23,374 - root - INFO - SMILES: CCC
+2024-09-07 10:32:23,374 - root - INFO - Bond count: 2
+2024-09-07 10:32:23,374 - root - INFO - Atom counts: {'C': 3, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:32:23,374 - root - INFO - C: 3, N: 0, O: 0, X: 0, B: 2
+2024-09-07 10:32:23,375 - root - INFO - Calculated Hydrogens: 8
+2024-09-07 10:32:28,810 - root - INFO - SMILES: CCC
+2024-09-07 10:32:28,811 - root - INFO - Bond count: 2
+2024-09-07 10:32:28,811 - root - INFO - Atom counts: {'C': 3, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:32:28,811 - root - INFO - C: 3, N: 0, O: 0, X: 0, B: 2
+2024-09-07 10:32:28,811 - root - INFO - Calculated Hydrogens: 8
+2024-09-07 10:32:31,377 - root - INFO - SMILES: CCCC
+2024-09-07 10:32:31,377 - root - INFO - Bond count: 3
+2024-09-07 10:32:31,378 - root - INFO - Atom counts: {'C': 4, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:32:31,378 - root - INFO - C: 4, N: 0, O: 0, X: 0, B: 3
+2024-09-07 10:32:31,378 - root - INFO - Calculated Hydrogens: 10
+2024-09-07 10:34:12,887 - root - INFO - Logging setup complete
+2024-09-07 10:34:59,861 - root - ERROR - Error fetching data for SMILES CV: 'PUGREST.BadRequest: error: '
+2024-09-07 10:34:59,862 - root - WARNING - No valid data found for SMILES: CV
+2024-09-07 10:35:02,406 - root - ERROR - Error fetching data for SMILES CVd: 'PUGREST.BadRequest: error: '
+2024-09-07 10:35:02,406 - root - WARNING - No valid data found for SMILES: CVd
+2024-09-07 10:35:07,900 - pubchempy - INFO - 'PUGREST.NotFound'
+2024-09-07 10:35:07,923 - root - INFO - SMILES: CBC
+2024-09-07 10:35:07,923 - root - INFO - Bond count: 2
+2024-09-07 10:35:07,923 - root - INFO - Atom counts: {'C': 2, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:35:07,923 - root - INFO - C: 2, N: 0, O: 0, X: 0, B: 2
+2024-09-07 10:35:07,923 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:36:15,686 - root - INFO - Logging setup complete
+2024-09-07 10:36:34,488 - root - INFO - SMILES: C
+2024-09-07 10:36:34,488 - root - INFO - Bond count: 0
+2024-09-07 10:36:34,488 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:36:34,488 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 10:36:34,489 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:36:39,334 - pubchempy - INFO - 'PUGREST.NotFound'
+2024-09-07 10:36:40,561 - root - INFO - All database entries have been updated.
+2024-09-07 10:36:41,858 - root - INFO - All database entries have been updated.
+2024-09-07 10:37:09,911 - root - INFO - SMILES: C
+2024-09-07 10:37:09,912 - root - INFO - Bond count: 0
+2024-09-07 10:37:09,912 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:37:09,912 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 10:37:09,912 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:37:10,586 - root - INFO - SMILES: C
+2024-09-07 10:37:10,587 - root - INFO - Bond count: 0
+2024-09-07 10:37:10,587 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:37:10,587 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 10:37:10,587 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:37:11,339 - pubchempy - INFO - 'PUGREST.NotFound'
+2024-09-07 10:37:11,348 - root - INFO - SMILES: CBC
+2024-09-07 10:37:11,349 - root - INFO - Bond count: 2
+2024-09-07 10:37:11,349 - root - INFO - Atom counts: {'C': 2, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:37:11,349 - root - INFO - C: 2, N: 0, O: 0, X: 0, B: 2
+2024-09-07 10:37:11,349 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:37:13,104 - root - INFO - SMILES: CCCC
+2024-09-07 10:37:13,105 - root - INFO - Bond count: 3
+2024-09-07 10:37:13,105 - root - INFO - Atom counts: {'C': 4, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:37:13,105 - root - INFO - C: 4, N: 0, O: 0, X: 0, B: 3
+2024-09-07 10:37:13,105 - root - INFO - Calculated Hydrogens: 10
+2024-09-07 10:37:14,807 - root - INFO - SMILES: C
+2024-09-07 10:37:14,808 - root - INFO - Bond count: 0
+2024-09-07 10:37:14,808 - root - INFO - Atom counts: {'C': 1, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:37:14,808 - root - INFO - C: 1, N: 0, O: 0, X: 0, B: 0
+2024-09-07 10:37:14,808 - root - INFO - Calculated Hydrogens: 4
+2024-09-07 10:37:22,167 - root - INFO - SMILES: CCCC
+2024-09-07 10:37:22,167 - root - INFO - Bond count: 3
+2024-09-07 10:37:22,167 - root - INFO - Atom counts: {'C': 4, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:37:22,167 - root - INFO - C: 4, N: 0, O: 0, X: 0, B: 3
+2024-09-07 10:37:22,167 - root - INFO - Calculated Hydrogens: 10
+2024-09-07 10:42:20,871 - root - INFO - Logging setup complete
+2024-09-07 10:44:17,336 - root - INFO - Logging setup complete
+2024-09-07 10:49:19,222 - root - INFO - Logging setup complete
+2024-09-07 10:49:34,012 - root - INFO - SMILES: CCCC
+2024-09-07 10:49:34,013 - root - INFO - Bond count: 3
+2024-09-07 10:49:34,013 - root - INFO - Atom counts: {'C': 4, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:49:34,014 - root - INFO - C: 4, N: 0, O: 0, X: 0, B: 3
+2024-09-07 10:49:34,014 - root - INFO - Calculated Hydrogens: 10
+2024-09-07 10:49:49,926 - root - INFO - Logging setup complete
+2024-09-07 10:50:15,560 - root - INFO - Logging setup complete
+2024-09-07 10:53:14,956 - root - INFO - Logging setup complete
+2024-09-07 10:53:26,650 - root - INFO - SMILES: CCCC
+2024-09-07 10:53:26,651 - root - INFO - Bond count: 3
+2024-09-07 10:53:26,651 - root - INFO - Atom counts: {'C': 4, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 10:53:26,651 - root - INFO - C: 4, N: 0, O: 0, X: 0, B: 3
+2024-09-07 10:53:26,651 - root - INFO - Calculated Hydrogens: 10
+2024-09-07 10:53:39,225 - root - INFO - Logging setup complete
+2024-09-07 10:54:01,352 - root - INFO - Logging setup complete
+2024-09-07 10:54:10,350 - pubchempy - INFO - 'PUGREST.NotFound'
+2024-09-07 10:54:11,559 - root - INFO - All database entries have been updated.
+2024-09-07 10:54:11,839 - root - INFO - All database entries have been updated.
+2024-09-07 10:58:50,679 - root - INFO - Logging setup complete
+2024-09-07 11:01:49,842 - root - INFO - Logging setup complete
+2024-09-07 11:01:54,851 - root - INFO - SMILES: CCC
+2024-09-07 11:01:54,852 - root - INFO - Bond count: 2
+2024-09-07 11:01:54,852 - root - INFO - Atom counts: {'C': 3, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 11:01:54,852 - root - INFO - C: 3, N: 0, O: 0, X: 0, B: 2
+2024-09-07 11:01:54,852 - root - INFO - Calculated Hydrogens: 8
+2024-09-07 11:03:12,178 - root - INFO - Logging setup complete
+2024-09-07 11:03:19,285 - root - INFO - SMILES: CCC
+2024-09-07 11:03:19,286 - root - INFO - Bond count: 2
+2024-09-07 11:03:19,286 - root - INFO - Atom counts: {'C': 3, 'N': 0, 'O': 0, 'F': 0, 'Cl': 0, 'Br': 0, 'I': 0}
+2024-09-07 11:03:19,286 - root - INFO - C: 3, N: 0, O: 0, X: 0, B: 2
+2024-09-07 11:03:19,286 - root - INFO - Calculated Hydrogens: 8
+2024-09-07 11:03:33,480 - root - INFO - Logging setup complete
