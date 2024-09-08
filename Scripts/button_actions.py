@@ -27,34 +27,26 @@ class ButtonActions:
         """
         Draw the molecule, display hydrogen count, and update the database for the entered SMILES string.
         """
-        if not smiles_input:
-            logging.error("Invalid SMILES input: None or empty string received.")
-            QMessageBox.warning(self.viewer, "Invalid Input", "Please enter a valid SMILES string.")
-            return
-
         try:
             mol_analysis = MoleculeAnalysis(smiles_input)
-            molecule_data = self.db_manager.fetch_pubchem_data(smiles_input)
+            molecule_data = self.viewer.db_manager.fetch_pubchem_data(smiles_input)
 
             if molecule_data['iupac_name'] == 'N/A':
-                logging.warning(f"No valid data found for SMILES: {smiles_input}")
                 QMessageBox.warning(self.viewer, "Data Not Found", "No valid data was found for the entered SMILES string.")
                 return
 
             # Update UI elements
             self.viewer.info_label.setText(mol_analysis.get_info_text(molecule_data))
             self.viewer.image_label.setPixmap(mol_analysis.get_pixmap())
-
-            # Call the MoleculeViewer's method to populate atom and bond information (viewer is responsible for this)
             self.viewer.table_populator.populate_atom_bond_info(mol_analysis)
 
             # Hydrogen calculation
             calculated_hydrogen_count = self.h_calculator.calculate_hydrogen_count(smiles_input)
             self.viewer.hydrogen_count_label.setText(f"Calculated Hydrogen Count: {calculated_hydrogen_count}")
 
-            # Update database and display
-            self.db_manager.upsert_molecule(smiles_input, molecule_data)
-            self.viewer.table_populator.populate_database_view()  # Make sure to call this after updating
+            # Update the database and refresh view
+            self.viewer.db_manager.upsert_molecule(smiles_input, molecule_data)
+            self.viewer.table_populator.populate_database_view()
 
         except Exception as e:
             logging.error(f"Error processing molecule: {e}")
@@ -101,11 +93,11 @@ class ButtonActions:
 
     def update_all_database(self):
         """Update the database with all entries and refresh the view."""
-        self.db_manager.update_all_database()
-        self.viewer.table_populator.populate_database_view()  # Refresh after updating the database
+        self.viewer.db_manager.update_all_database()
+        self.viewer.table_populator.populate_database_view()
         QMessageBox.information(self.viewer, "Update Complete", "All database entries have been updated.")
         logging.info("All database entries have been updated.")
-
+        
     def open_log_viewer(self):
         """Open the log viewer for displaying log entries."""
         root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -134,3 +126,10 @@ class ButtonActions:
 
         grid_window.setLayout(grid_layout)
         grid_window.exec_()
+
+    def on_draw_button_pressed(self):
+        smiles_input = self.viewer.input_field.text().strip()  # Get the SMILES string from input field
+        if not smiles_input:
+            QMessageBox.warning(self.viewer, "Invalid Input", "Please enter a valid SMILES string.")
+            return
+        self.draw_molecule(smiles_input)

@@ -1,20 +1,19 @@
-# viewer.py
-
 # Modules
 import os
 import sys
 import logging
 import webbrowser
-from PyQt5.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QApplication, QHBoxLayout, QLabel, QPushButton, QLineEdit, QFileDialog, QMessageBox, QInputDialog, QTableWidget, QTableWidgetItem, QHeaderView, QStyleFactory, QDialog, QGridLayout, QTextEdit
+from PyQt5.QtWidgets import QSizePolicy, QMainWindow, QWidget, QVBoxLayout, QApplication, QHBoxLayout, QLabel, QPushButton, QLineEdit, QFileDialog, QMessageBox, QInputDialog, QTableWidget, QTableWidgetItem, QHeaderView, QStyleFactory, QDialog, QGridLayout, QTextEdit
 from PyQt5.QtGui import QPixmap, QPalette, QColor
 from PyQt5.QtCore import Qt
 from rdkit import Chem
 from rdkit.Chem import Draw
 from PIL import ImageQt, Image
+
 # My Scripts
-from hydrogen_calculator import HydrogenCalculator  # Organic Chem Math
+from hydrogen_calculator import HydrogenCalculator
 from database_manager import DatabaseManager
-from molecule_analysis import MoleculeAnalysis  # Script that makes molecule image
+from molecule_analysis import MoleculeAnalysis
 from smiles_generator import SMILESGenerator
 from log_viewer import LogViewer
 from settings_manager import SettingsManager
@@ -22,9 +21,9 @@ from button_actions import ButtonActions
 from table_populator import TablePopulator
 from dark_mode_manager import DarkModeManager
 
-# Logging setup (placed at the top)
-root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # Project root directory
-logs_folder = os.path.join(root_dir, 'Logs')  # Logs folder path
+# Logging setup
+root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+logs_folder = os.path.join(root_dir, 'Logs')
 
 # Ensure Logs folder exists
 if not os.path.exists(logs_folder):
@@ -34,17 +33,16 @@ if not os.path.exists(logs_folder):
 log_file = os.path.join(logs_folder, 'molecule_viewer.log')
 logging.basicConfig(
     filename=log_file,
-    level=logging.INFO,  # You can set this to DEBUG for more detailed logs
+    level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
 logging.info("Logging setup complete")
-
 class MoleculeViewer(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        # Initialize the Database Manager and Hydrogen Calculator and table populator ad darkmode manager
+        # Initialize the Database Manager and Hydrogen Calculator, table populator, and dark mode manager
         self.db_manager = DatabaseManager()
         self.h_calculator = HydrogenCalculator()
         self.table_populator = TablePopulator(self)
@@ -66,7 +64,7 @@ class MoleculeViewer(QMainWindow):
             QApplication.setPalette(self.dark_mode_manager.get_dark_mode_palette())
 
         # Set the window size from saved settings
-        window_size = self.settings_manager.get_setting('window_size', '1600,900')
+        window_size = self.settings_manager.get_setting('window_size', '2560,600')
         width, height = map(int, window_size.split(','))  # Parse width and height as integers
         self.resize(width, height)
 
@@ -78,16 +76,17 @@ class MoleculeViewer(QMainWindow):
         elements = ['C', 'H']
         counts = [2, 6]
         self.smiles_generator = SMILESGenerator(elements, counts, "Ethane")
-            
+
     def on_db_select(self, row, column):
+        """Handles the selection of a molecule from the database and updates the UI."""
         selected_smiles = self.db_table.item(row, 0).text()
         if selected_smiles and selected_smiles.lower() != 'none':
             self.input_field.setText(selected_smiles)
-            
+
             # Call draw molecule action from ButtonActions
             self.button_actions.draw_molecule(selected_smiles)
 
-            # Now, call populate_atom_bond_info using the table_populator instance (instead of inside ButtonActions)
+            # Now, call populate_atom_bond_info using the table_populator instance
             mol_analysis = MoleculeAnalysis(selected_smiles)
             self.table_populator.populate_atom_bond_info(mol_analysis)
 
@@ -101,81 +100,111 @@ class MoleculeViewer(QMainWindow):
         self.setCentralWidget(self.central_widget)
 
         # Main Layout
-        main_layout = QVBoxLayout(self.central_widget)
+        main_layout = QHBoxLayout(self.central_widget)  # Main layout is horizontal
+
+        # Left Layout (for the search bar, buttons, and database view)
+        left_layout = QVBoxLayout()
+        main_layout.addLayout(left_layout)
+
+        # Top Layout (Search bar and buttons)
         top_layout = QHBoxLayout()
-        info_layout = QVBoxLayout()
-        
-        main_layout.addLayout(top_layout)
-        main_layout.addLayout(info_layout)
+        left_layout.addLayout(top_layout)
 
         # Input field for SMILES
         self.input_field = QLineEdit(self)
         self.input_field.setPlaceholderText("Enter SMILES code...")
-        self.input_field.returnPressed.connect(self.button_actions.draw_molecule)
+        self.input_field.setFixedHeight(30)
+        self.input_field.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        self.input_field.returnPressed.connect(self.handle_draw_molecule)
         top_layout.addWidget(self.input_field)
 
         # Buttons
         draw_button = QPushButton("Draw Molecule", self)
-        draw_button.clicked.connect(self.button_actions.draw_molecule)
+        draw_button.clicked.connect(self.handle_draw_molecule)  # Fix the click event to use handle_draw_molecule
+        draw_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         top_layout.addWidget(draw_button)
 
         save_button = QPushButton("Save Image", self)
         save_button.clicked.connect(self.button_actions.save_image)
+        save_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         top_layout.addWidget(save_button)
 
-        update_button = QPushButton("Update All Database", self)
+        update_button = QPushButton("Update Database", self)
         update_button.clicked.connect(self.button_actions.update_all_database)
+        update_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         top_layout.addWidget(update_button)
 
         open_pubchem_button = QPushButton("Open PubChem Page", self)
         open_pubchem_button.clicked.connect(self.button_actions.open_pubchem_page)
+        open_pubchem_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         top_layout.addWidget(open_pubchem_button)
 
         add_nickname_button = QPushButton("Add Nickname", self)
         add_nickname_button.clicked.connect(self.button_actions.add_nickname)
+        add_nickname_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         top_layout.addWidget(add_nickname_button)
-
+        """ 
         generate_smiles_button = QPushButton("Generate SMILES Grid", self)
         generate_smiles_button.clicked.connect(self.button_actions.generate_smiles_grid)
+        generate_smiles_button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         top_layout.addWidget(generate_smiles_button)
-
-        # Molecule Info Label
-        self.info_label = QLabel(self)
-        self.info_label.setAlignment(Qt.AlignTop)
-        info_layout.addWidget(self.info_label)
-
-        # Molecule Image Display
-        self.image_label = QLabel(self)
-        self.image_label.setAlignment(Qt.AlignCenter)
-        info_layout.addWidget(self.image_label)
-
-        # Hydrogen Count Display
-        self.hydrogen_count_label = QLabel("Calculated Hydrogen Count: ", self)
-        info_layout.addWidget(self.hydrogen_count_label)
-
-        # Atom Count Table
-        self.atom_count_table = QTableWidget(self)
-        self.atom_count_table.setColumnCount(2)
-        self.atom_count_table.setHorizontalHeaderLabels(["Element", "Count"])
-        info_layout.addWidget(self.atom_count_table)
-
-        # Bond Information Table
-        self.bond_info_table = QTableWidget(self)
-        self.bond_info_table.setColumnCount(4)
-        self.bond_info_table.setHorizontalHeaderLabels(["Bond", "Δ EN", "Length", "Type"])
-        info_layout.addWidget(self.bond_info_table)
-
+        """
         # Database View
         self.db_table = QTableWidget(self)
         self.db_table.setColumnCount(6)
         self.db_table.setHorizontalHeaderLabels(["SMILES", "Common Name", "IUPAC Name", "Formula", "Atomic Mass", "Starred"])
         self.db_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-        self.db_table.cellClicked.connect(self.on_db_select)
-        main_layout.addWidget(self.db_table)
+        self.db_table.cellClicked.connect(self.on_db_select)  # Connect on_db_select
+        left_layout.addWidget(self.db_table)
 
+        # Right Layout (for the molecule image and information)
+        right_layout = QVBoxLayout()
+        main_layout.addLayout(right_layout)
+
+        # Molecule Info and Image Layout
+        molecule_info_image_layout = QHBoxLayout()
+        right_layout.addLayout(molecule_info_image_layout)
+
+        # Molecule Image Display
+        self.image_label = QLabel(self)
+        self.image_label.setAlignment(Qt.AlignCenter)
+        molecule_info_image_layout.addWidget(self.image_label)
+
+        # Molecule Info Label (names, formula, etc.)
+        self.info_label = QLabel(self)
+        self.info_label.setAlignment(Qt.AlignTop)
+        molecule_info_image_layout.addWidget(self.info_label)
+
+        # Tables for Atom and Bond Information (side by side)
+        atom_bond_layout = QHBoxLayout()
+        right_layout.addLayout(atom_bond_layout)
+
+        # Atom Count Table
+        self.atom_count_table = QTableWidget(self)
+        self.atom_count_table.setColumnCount(4)  # Including Mass and Electronegativity
+        self.atom_count_table.setHorizontalHeaderLabels(["Element", "Count", "Molar Mass (g/mol)", "Electronegativity"])
+        atom_bond_layout.addWidget(self.atom_count_table)
+
+        # Bond Information Table
+        self.bond_info_table = QTableWidget(self)
+        self.bond_info_table.setColumnCount(4)
+        self.bond_info_table.setHorizontalHeaderLabels(["Bond", "Δ EN", "Length (Å)", "Type"])
+        atom_bond_layout.addWidget(self.bond_info_table)
+
+        # Hydrogen Count Display (below the atom and bond tables)
+        self.hydrogen_count_label = QLabel("Calculated Hydrogen Count: ", self)
+        right_layout.addWidget(self.hydrogen_count_label)
+
+        # Style
+        QApplication.setStyle(QStyleFactory.create("Fusion"))
+
+        # Populate the database view
         self.table_populator.populate_database_view()
 
-        QApplication.setStyle(QStyleFactory.create("Fusion"))
+    def handle_draw_molecule(self):
+        """Handles the input from the SMILES input field and passes it to the button actions."""
+        smiles_input = self.input_field.text().strip()
+        self.button_actions.draw_molecule(smiles_input)
 
     def create_menu(self):
         """Create the menu bar and add options for dark mode and log viewing."""
@@ -194,7 +223,7 @@ class MoleculeViewer(QMainWindow):
         self.settings_manager.save_setting('dark_mode', 'True' if self.is_dark_mode else 'False')
         self.settings_manager.close()
         event.accept()
-# Inside viewer.py, make sure the table_populator object is used correctly.
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
